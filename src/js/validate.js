@@ -59,39 +59,21 @@ $(document).ready(function(){
   /////////////////////
   // REGISTRATION FORM
   ////////////////////
-  $(".js-registration-form").validate({
+  $(".login__form").validate({
     errorPlacement: validateErrorPlacement,
     highlight: validateHighlight,
     unhighlight: validateUnhighlight,
     submitHandler: validateSubmitHandler,
     rules: {
-      last_name: "required",
-      first_name: "required",
-      email: {
-        required: true,
-        email: true
-      },
+      name: "required",
       password: {
         required: true,
         minlength: 6,
       }
-      // phone: validatePhone
     },
     messages: {
-      last_name: "Заполните это поле",
-      first_name: "Заполните это поле",
-      email: {
-          required: "Заполните это поле",
-          email: "Email содержит неправильный формат"
-      },
-      password: {
-          required: "Заполните это поле",
-          email: "Пароль мимимум 6 символов"
-      },
-      // phone: {
-      //     required: "Заполните это поле",
-      //     minlength: "Введите корректный телефон"
-      // }
+      name: "Ошибка: введены недопустимые символы",
+      password: "Ошибка: введены недопустимые символы",
     }
   });
 

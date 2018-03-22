@@ -5,15 +5,16 @@ bodyClass: homepage
 extends shared/_layout
 block header
 block content
+  include components/_login-header
   .login
     form.login__form(action='#')
       p.login__title Вход в личный кабинет
       .login__input-container
         label логин
-        input(type='text', placeholder='sibblogistic')
+        input(type='text', name='name', placeholder='sibblogistic')
       .login__input-container
         label пароль
-        input(type='password', placeholder='********')
+        input(type='password', name='password', placeholder='********')
       input(type='submit', value='войти')
       p.login__error Ошибка: Такой учетной записи не найдено
 

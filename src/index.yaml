@@ -3,5 +3,3 @@ ProjectTitle: Project-name
 PageList:
 - file: login.html
   ready: 20
-- file: login+header.html
-  ready: 20
