@@ -3,8 +3,19 @@ header.header
   .container
     .header__wrapper
       a(href="#").header__logo
-        +icon('ico-email')
-      ul.header__menu
+        //- +icon('ico-email')
+        img(src="img/logotype.png", alt="")
+      .header__pages
+          a.header__link-page.is-active(href='#') Текущие поставки
+          a.header__link-page(href='#') журнал поставок
+      .header__user
+          img(src='img/icn-user.png', alt='')
+          .header__user-info
+            p СибЛогистикс
+            a(href='#') Выйти
+      .header__links
+          a.header__phone(href='callto:88005051674') 8 (800) 505-16-74
+          a.header__mail(href='mailto:info@so-logistics.ru') info@so-logistics.ru
       
         
 // HEADER :: END
