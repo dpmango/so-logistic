@@ -5,3 +5,5 @@ PageList:
   ready: 20
 - file: current.html
   ready: 20
+- file: log-page.html
+  ready: 20

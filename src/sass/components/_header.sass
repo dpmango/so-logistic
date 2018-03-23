@@ -1,14 +1,14 @@
 .header
 	position: fixed
+	z-index: 9999
 	top: 0
 	left: 0
 	width: 100%
 	background: #fff
 	display: flex
-	padding: 7px 0
+	padding: 7px 10px
 	.container
-		max-width: 960px
-		padding: 0 10px
+		padding: 0
 	&__logo
 		max-width: 147px
 		// width: 45%
@@ -23,9 +23,8 @@
 	&__links
 		display: flex
 		flex-wrap: wrap
-		margin-left: auto
-		max-width: 127px
-		min-width: 127px
+		// margin-left: auto
+		flex: 0 0 127px
 		justify-content: flex-end
 	&__phone
 		display: flex
@@ -47,6 +46,10 @@
 			border-color: transparent
 	&__pages
 		margin: 0 auto
+		width: 100%
+		position: static
+		text-align: center
+		flex: 1
 	&__link-page
 		font-size: 11px
 		text-transform: uppercase
@@ -63,18 +66,17 @@
 			color: #444
 	&__user
 		display: flex
+		// flex: 0 1 auto
 		align-items: center
-		padding: 0 2.5%
+		padding: 0 20px
 		border: 1px solid #f1f1f1
 		border-top: none
 		border-bottom: none
 		margin-left: auto
-		margin-right: 2.5%
-		img
-			width: 21px
-			height: 21px
-			margin-right: 15px
+		margin-right: 20px
 		p
+			display: block
+			width: inherit
 			font-size: 12px
 			font-weight: 700
 		a
@@ -84,7 +86,14 @@
 			border-bottom: 1px solid #106bb5
 			margin-top: 5px
 			letter-spacing: 0.1px
-@media screen and (max-width: 768px)
+	&__user-icon
+		min-width: 21px
+		margin-right: 15px
+		.ico
+			color: #cccccc
+			font-size: 21px
+
++r($tablet)
 	.header
 		&__pages
 			position: absolute
@@ -102,7 +111,7 @@
 		&__links
 			margin-left: 2.5%
 
-@media screen and (max-width: 568px)
++r($mobile)
 	.header
 		&__logo
 			max-width: 135px
@@ -114,6 +123,9 @@
 			border: none
 		&__pages
 			top: 57px
+			border-bottom: 1px solid transparent
+			&.custom
+				border-bottom: 1px solid #f1f1f1
 
 
 
