@@ -272,9 +272,9 @@ $(document).ready(function() {
     function initHeaderScroll(){
       _window.on('scroll', throttle(function(e) {
         if ($(window).scrollTop() > 1) {
-          $('.header__pages').addClass('custom');
+          $('.header').addClass('custom');
         } else {
-          $('.header__pages').removeClass('custom');
+          $('.header').removeClass('custom');
         }
 
       }, 1));

@@ -7,6 +7,9 @@
 	background: #fff
 	display: flex
 	padding: 7px 10px
+	border-bottom: 1px solid transparent
+	&.custom
+		border-bottom: 1px solid #f1f1f1
 	.container
 		padding: 0
 	&__logo
@@ -124,8 +127,11 @@
 		&__pages
 			top: 57px
 			border-bottom: 1px solid transparent
-			&.custom
+		&.custom
+			border: none
+			.header__pages
 				border-bottom: 1px solid #f1f1f1
+
 
 
 
