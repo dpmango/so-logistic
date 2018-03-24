@@ -2,6 +2,14 @@ $(document).ready(function() {
 
     $('select').selectric();
 
+    $(".steps").each(function () {
+      var countLi = $(this).find('.steps__item').length;
+      console.log(countLi);
+      if (countLi > 10) {
+        $('.steps__item').addClass('responsive--edit');
+      }
+    })
+
     $(document).on('click', '.open-button', function(e) {
         e.preventDefault();
         $(this).parent().parent().toggleClass('is-open');
