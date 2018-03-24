@@ -7,6 +7,23 @@ $(document).ready(function() {
         $(this).parent().parent().toggleClass('is-open');
     });
 
+    // Fillings steps
+        (function(){
+            var $steps = $('#steps');
+        var $stepsChilds = $steps.children();
+        var productStep = parseInt($steps.data('active-step'));
+        
+        if (typeof productStep == 'number' && $stepsChilds.length > 1) {
+            $($stepsChilds[productStep]).addClass('in-progress')
+          
+            for (var i = 0; i <= productStep - 1;i++) {
+            $($stepsChilds[i]).addClass('is-active')
+          }
+        } else {
+            console.warn('Ooops! Smth. wrong')
+        }
+      }());
+
     var daysToAdd = 1;
     $("#txtFromDate").datepicker({
         onSelect: function (selected) {
