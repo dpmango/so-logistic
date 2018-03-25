@@ -7,5 +7,3 @@ PageList:
   ready: 90
 - file: log-page.html
   ready: 90
-- file: log-page-many.html
-  ready: 90

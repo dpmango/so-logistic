@@ -32,7 +32,11 @@
       font-weight: 400
       span
         font-weight: 700
+        transition: .25s $ease
         border-bottom: 1px solid $fontColor
+      &:hover
+        span
+          border-color: transparent
   &__links
     display: flex
     flex-wrap: wrap

@@ -119,17 +119,20 @@ $(document).ready(function() {
 
     // Fillings steps
     function setStepsClasses(){
-        var $steps = $('.js-steps');
-        var $stepsChilds = $steps.children();
-        var productStep = parseInt($steps.data('active-step'));
+        var $allSteps = $('.js-steps');
+        $allSteps.each(function(i, step){
+          var $steps = $(step);
+          var $stepsChilds = $steps.children();
+          var productStep = parseInt($steps.data('active-step'));
 
-        if (typeof productStep == 'number' && $stepsChilds.length > 1) {
-            $($stepsChilds[productStep]).addClass('in-progress')
+          if (typeof productStep == 'number' && $stepsChilds.length > 1) {
+              $($stepsChilds[productStep]).addClass('in-progress')
 
-            for (var i = 0; i <= productStep - 1; i++) {
-                $($stepsChilds[i]).addClass('is-active')
-            }
-        }
+              for (var i = 0; i <= productStep - 1; i++) {
+                  $($stepsChilds[i]).addClass('is-active')
+              }
+          }
+        })
     }
 
 
