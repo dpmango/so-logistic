@@ -2,20 +2,19 @@
 header.header
   .container
     .header__wrapper
-      a(href="#").header__logo
+      a(href="login.html").header__logo
         img(src="img/logotype.svg", alt="")
       .header__pages
-          a.header__link-page.is-active(href='current.html') Текущие поставки
-          a.header__link-page(href='log-page.html') журнал поставок
+        a.header__link-page.is-active(href='current.html') Текущие поставки
+        a.header__link-page(href='log-page.html') журнал поставок
       .header__user
-          .header__user-icon
-            +icon('ico-user')
-          .header__user-info
-            p СибЛогистикс
-            a(href='#') Выйти
+        .header__user-icon
+          +icon('ico-user')
+        .header__user-info
+          p СибЛогистикс
+          a(href='login.html') Выйти
       .header__links
-          a.header__phone(href='tel:88005051674') 8 (800) 505-16-74
-          a.header__mail(href='mailto:info@so-logistics.ru') info@so-logistics.ru
-      
-        
+        a.header__phone(href='tel:88005051674') 8 (800) 505-16-74
+        a.header__mail(href='mailto:info@so-logistics.ru') info@so-logistics.ru
+
 // HEADER :: END

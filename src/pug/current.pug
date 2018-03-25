@@ -1,32 +1,36 @@
 ---
-title: current
+title: Current
 ---
 extends shared/_layout
-//- block header
 block content
-	// Begin current-page
-	.wrapper-main
-		.current-head
-			.container
-				h1 Текущие поставки
-		.current-body
-			.container.container--full
-				.current-body__item.is-open
-					.current-body__item-head
-						p.current-body__number №01-585494-95
-						.current-body__vertical-line
-						.current-body__status 
-							.current-body__way
-							.current-body__success-way(style='width:10%')
-						.current-body__vertical-line
-						.current-body__info
-							p.current-body__date 02.11.2017
-							p.current-body__delivery-status Доставка до материка
-							p.current-body__comment Отправлено поставщиком
-						a.current-body__open-item.open-button(href='#')
-							+icon('ico-arrow')
-					.current-body__full-way
-					.current-body__full-info
+	// Begin log-page
+	.log-head
+		.container
+			h1 Текущие поставки
+			
+	.log
+		.container.container--full
+
+			// ITEMS
+			// item
+			.log__item.is-open
+				.log__item-head
+					span.log__number №01-585494-95
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:10%')
+					.log__info
+						span.log__date 02.11.2017
+						span.log__delivery-status Доставка до материка
+						span.log__comment Отправлено поставщиком
+					.log__toggler
+						+icon('ico-arrow')
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-6
+						
+					.log__full-info
 						h2.full-info__title Информация о заказе
 						.full-info__grid
 							.row
@@ -50,22 +54,24 @@ block content
 									p Комментарий:
 								.right-side
 									p Требуется оплата доставки
-				.current-body__item
-					.current-body__item-head
-						p.current-body__number №01-585494-95
-						.current-body__vertical-line
-						.current-body__status 
-							.current-body__way
-							.current-body__success-way(style='width:10%')
-						.current-body__vertical-line
-						.current-body__info
-							p.current-body__date 02.11.2017
-							p.current-body__delivery-status Доставка до материка
-							p.current-body__comment Отправлено поставщиком
-						a.current-body__open-item.open-button(href='#')
-							+icon('ico-arrow')
-					.current-body__full-way
-					.current-body__full-info
+			// item
+			.log__item
+				.log__item-head
+					span.log__number №01-585494-95
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:10%')
+					.log__info
+						span.log__date 02.11.2017
+						span.log__delivery-status Доставка до материка
+						span.log__comment Отправлено поставщиком
+					.log__toggler
+						+icon('ico-arrow')
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-12
+					.log__full-info
 						h2.full-info__title Информация о заказе
 						.full-info__grid
 							.row
@@ -89,22 +95,24 @@ block content
 									p Комментарий:
 								.right-side
 									p Требуется оплата доставки	
-				.current-body__item
-					.current-body__item-head
-						p.current-body__number №01-585494-17
-						.current-body__vertical-line
-						.current-body__status 
-							.current-body__way
-							.current-body__success-way(style='width:100%')
-						.current-body__vertical-line
-						.current-body__info
-							p.current-body__date 24.10.2017
-							p.current-body__delivery-status Доставлено
-							p.current-body__comment Принято получателем
-						a.current-body__open-item.open-button(href='#')
-							+icon('ico-arrow')
-					.current-body__full-way
-					.current-body__full-info
+			// item
+			.log__item
+				.log__item-head
+					span.log__number №01-585494-17
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:100%')
+					.log__info
+						span.log__date 24.10.2017
+						span.log__delivery-status Доставлено
+						span.log__comment Принято получателем
+					.log__toggler
+						+icon('ico-arrow')
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-3
+					.log__full-info
 						h2.full-info__title Информация о заказе
 						.full-info__grid
 							.row
@@ -128,23 +136,25 @@ block content
 									p Комментарий:
 								.right-side
 									p Требуется оплата доставки
-
-				.current-body__item
-					.current-body__item-head
-						p.current-body__number №00-559502-98
-						.current-body__vertical-line
-						.current-body__status 
-							.current-body__way
-							.current-body__success-way(style='width:40%')
-						.current-body__vertical-line
-						.current-body__info
-							p.current-body__date 18.10.2017
-							p.current-body__delivery-status Таможня
-							p.current-body__comment Ожидает проверки
-						a.current-body__open-item.open-button(href='#')
-							+icon('ico-arrow')
-					.current-body__full-way
-					.current-body__full-info
+			
+			// item
+			.log__item
+				.log__item-head
+					span.log__number №00-559502-98
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:40%')
+					.log__info
+						span.log__date 18.10.2017
+						span.log__delivery-status Таможня
+						span.log__comment Ожидает проверки
+					.log__toggler
+						+icon('ico-arrow')
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-6
+					.log__full-info
 						h2.full-info__title Информация о заказе
 						.full-info__grid
 							.row
@@ -168,23 +178,25 @@ block content
 									p Комментарий:
 								.right-side
 									p Требуется оплата доставки
-
-				.current-body__item
-					.current-body__item-head
-						p.current-body__number №00-559552-13
-						.current-body__vertical-line
-						.current-body__status 
-							.current-body__way
-							.current-body__success-way(style='width:70%')
-						.current-body__vertical-line
-						.current-body__info
-							p.current-body__date 15.10.2017
-							p.current-body__delivery-status Доставка до склада
-							p.current-body__comment Принято на склад
-						a.current-body__open-item.open-button(href='#')
-							+icon('ico-arrow')
-					.current-body__full-way
-					.current-body__full-info
+			
+			// item
+			.log__item
+				.log__item-head
+					span.log__number №00-559552-13
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:70%')
+					.log__info
+						span.log__date 15.10.2017
+						span.log__delivery-status Доставка до склада
+						span.log__comment Принято на склад
+					.log__toggler
+						+icon('ico-arrow')
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-12
+					.log__full-info
 						h2.full-info__title Информация о заказе
 						.full-info__grid
 							.row
@@ -208,23 +220,26 @@ block content
 									p Комментарий:
 								.right-side
 									p Требуется оплата доставки
-
-				.current-body__item
-					.current-body__item-head
-						p.current-body__number №00-559502-58
-						.current-body__vertical-line
-						.current-body__status 
-							.current-body__way
-							.current-body__success-way(style='width:1%')
-						.current-body__vertical-line
-						.current-body__info
-							p.current-body__date 13.10.2017
-							p.current-body__delivery-status Ожидает отправки
-							p.current-body__comment Заказ еще не отправлен
-						a.current-body__open-item.open-button(href='#')
-							+icon('ico-arrow')
-					.current-body__full-way
-					.current-body__full-info
+			
+			// item
+			.log__item
+				.log__item-head
+					span.log__number №00-559502-58
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:1%')
+					.log__info
+						span.log__date 13.10.2017
+						span.log__delivery-status Ожидает отправки
+						span.log__comment Заказ еще не отправлен
+					.log__toggler
+						+icon('ico-arrow')
+						
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-6
+					.log__full-info
 						h2.full-info__title Информация о заказе
 						.full-info__grid
 							.row
@@ -248,8 +263,4 @@ block content
 									p Комментарий:
 								.right-side
 									p Требуется оплата доставки
-
-
-
-
-//- block footer
+	

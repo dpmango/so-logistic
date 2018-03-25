@@ -1,0 +1,282 @@
+.log-head
+  padding: 70px 10px 0
+  .container
+    padding: 0
+
+.log
+  padding: 0 10px
+  .container.container--full
+    max-width: 1000px
+    padding: 0
+  &__item
+    background: #fff
+    padding: 15px 30px
+    border-radius: 5px
+    margin-bottom: 15px
+    cursor: pointer
+    transition: .25s $ease
+    &.is-open
+      cursor: auto
+      &:hover
+        box-shadow: none
+      .log
+        &__status, &__info
+          opacity: 0
+          pointer-events: none
+        &__toggler
+          transform: rotate(180deg)
+          color: #48a3ff
+
+    &:hover
+      box-shadow: 0 4px 8px rgba($fontColor, .1)
+      .log__toggler
+        color: #48a3ff
+
+  &__item-head
+    display: flex
+    justify-content: space-between
+    align-items: center
+    min-height: 52px
+    transition: all 0s $ease
+
+  &__dropdown
+    display: none
+
+  &__full-way
+    min-height: 180px
+    width: 100%
+    padding: 45px 0 0px
+    border: 1px solid $borderColor
+    border-left: none
+    border-right: none
+    margin: 15px auto 25px
+    display: flex
+    align-items: center
+  &__full-info
+    // display: none
+  &__number
+    display: inline-block
+    min-width: 131px
+    font-weight: 700
+    color: $fontColor
+    font-size: 14px
+    text-transform: uppercase
+
+  &__status
+    width: 47.5%
+    margin-left: 5.25%
+    margin-right: 5.25%
+    min-height: 32px
+    display: flex
+    align-items: center
+    position: relative
+    flex-wrap: wrap
+    transition: .25s $ease
+    &::before, &::after
+      display: inline-block
+      content: ' '
+      position: absolute
+      top: 50%
+      height: 100%
+      min-height: 45px
+      width: 1px
+      transform: translateY(-50%)
+      background: $borderColor
+    &::before
+      left: -6.5%
+    &::after
+      right: -6.5%
+
+    &-path
+      display: block
+      height: 7px
+      border-radius: 50px
+      width: 100%
+      background: #efefef
+      margin-top: 10px
+    &-fill
+      display: block
+      height: 7px
+      border-radius: 50px
+      width: 65%
+      background: $colorGreen
+      margin-top: -22px
+      position: relative
+      &:after
+        content: ''
+        position: absolute
+        display: block
+        width: 31px
+        height: 31px
+        background: svg-load('../icons/package.svg')
+        background-size: contain
+        right: -14px
+        top: -13px
+  &__info
+    line-height: 1.5
+    margin-right: 2%
+    min-width: 190px
+    transition: .25s $ease
+  &__date
+    display: block
+    font-size: 11px
+    color: #9d9d9d
+    font-weight: 400
+  &__delivery-status
+    display: block
+    font-size: 12px
+    color: $fontColor
+    font-weight: 700
+  &__comment
+    display: block
+    font-size: 12px
+    color: $fontColor
+    font-weight: 400
+  &__toggler
+    cursor: pointer
+    color: #cccccc
+    transition: .25s $ease
+    .ico
+      font-size: 24px
+      transform: rotate(90deg)
+      transition: .25s $ease
+    &:hover
+      color: #48a3ff
+    &:focus
+      color: #cccccc
+
+
+
+.full-info__title
+  font-size: 14px
+  color: $fontColor
+  font-weight: 700
+  line-height: 1.2
+  margin-bottom: 5px
+.full-info__grid
+  display: flex
+  max-width: 400px
+  width: 100%
+  flex-wrap: wrap
+  .row
+    width: 100%
+    display: flex
+    justify-content: flex-start
+    margin-top: 10px
+  .left-side
+    min-width: 150px
+    margin-right: 25px
+    line-height: 1.5
+    display: flex
+    align-items: center
+    p
+      font-size: 12px
+      color: #909090
+  .right-side
+    line-height: 1.5
+    display: flex
+    align-items: center
+    p
+      font-size: 12px
+      color: $fontColor
+    a
+      font-weight: 400
+      font-size: 12px
+      color: $colorBlue
+      border-bottom: 1px solid $colorBlue
+      line-height: 1.5
+      letter-spacing: 0.1px
+      transition: .25s $ease
+      &:hover
+        color: #2887e8
+        border-color: transparent
+
+
+
++r($tablet)
+  .log-head
+    padding-top: 100px
+  .log
+    &__item
+      position: relative
+      padding-bottom: 65px
+      &.is-open
+        .log__item-head
+          min-height: 1px
+
+    &__status
+      width: calc(100% - 60px)
+      padding: 0
+      margin: 0
+      position: absolute
+      min-height: 40px
+      bottom: 10px
+      border: none
+      border-top: 1px solid $borderColor
+      &::before, &::after
+        display: none
+      &-path
+        margin-top: 15px
+      &-fill
+        margin-top: -23px
+    &__info
+      margin-left: auto
+    &__full-way
+      padding: 25px 0
+
+
++r($mobile)
+  .log
+    &__item
+      // flex-wrap: wrap
+      padding: 20px 15px
+    &__item-head
+      display: flex
+      justify-content: space-between
+      align-items: center
+      min-height: 0
+      flex-wrap: wrap
+    &__number
+      width: 100%
+      font-size: 16px
+    &__status
+      width: 100%
+      margin-top: 15px
+      position: static
+      min-height: 40px
+      border-top: 1px solid $borderColor
+      &-path
+        margin-top: 20px
+      &-fill
+        margin-top: -18px
+    &__info
+      margin-left: 0
+      width: 100%
+    &__toggler
+      position: absolute
+      top: 16px
+      right: 15px
+      &.active
+        top: 14px
+    &__date
+      font-size: 12px
+      margin-top: 5px
+    &__delivery-status
+      font-size: 14px
+    &__comment
+      font-size: 12px
+
+  .full-info__grid
+    display: flex
+    max-width: 400px
+    width: 100%
+    flex-wrap: wrap
+    .row
+      width: 100%
+      display: flex
+      margin-top: 10px
+      flex-wrap: wrap
+    .left-side
+      min-width: 100%
+    .right-side
+      width: 100%

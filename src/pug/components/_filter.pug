@@ -1,0 +1,26 @@
+// FILTER
+form.filter(method='post')
+  .filter__number
+    p Номер партии
+    input(type='text' name='number' placeholder='01-585494-52')
+  .filter__date
+    p дата завершения
+    .filter__date-inputs
+      .input-container
+        label(for='txtFromDate')
+          +icon('ico-date')
+        <input type="text" id="txtFromDate" name="from">
+      p —
+      .input-container
+        label(for='txtToDate')
+          +icon('ico-date')
+        <input type="text" id="txtToDate" name="to">
+  .filter__status
+    p статус
+    select
+      option(value='Все') Все
+      option(value='Незавершенные') Незавершенные
+      option(value='Завершенные') Завершенные
+  .filter__buttons
+    input(type='submit' value='применить')
+    a.clear-all(href='#') Очистить

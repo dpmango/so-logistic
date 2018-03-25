@@ -1,93 +1,94 @@
 // FOOTER
 .footer
-	width: 100%
-	display: flex
-	padding: 0 10px
-	margin-top: 15px
-	.container
-		max-width: 940px
-		padding: 7px 0
-		border-top: 1px solid #e6e6e6
-	&__logo
-		max-width: 147px
-		width: 45%
-		img
-			width: 100%
-			height: auto
-	&__wrapper
-		display: flex
-		justify-content: space-between
-		align-items: center
-	&__middle
-		display: flex
-		align-items: center
-		margin: 0 auto
-		padding: 0 10px
-	&__info
-		font-size: 12px
-		text-align: center
-		line-height: 1.4
-		a
-			font-size: 12px
-			font-weight: 400
-			span
-				font-weight: 700
-				border-bottom: 1px solid #444
-	&__links
-		display: flex
-		flex-wrap: wrap
-		margin-left: auto
-		max-width: 127px
-		min-width: 127px
-		justify-content: flex-end
-	&__phone
-		font-weight: 700
-		font-size: 12px
-		color: #444444
-		border-bottom: 1px solid transparent
-		&:hover
-			color: #6d6c6c
-			border-color: #6d6c6c
-	&__mail
-		font-weight: 400
-		font-size: 12px
-		color: #106bb5
-		border-bottom: 1px solid #106bb5
-		margin-top: 5px
-		letter-spacing: 0.1px
-		&:hover
-			color: #2887e8
-			border-color: transparent
-			
+  width: 100%
+  display: flex
+  padding: 0 10px
+  margin-top: 15px
+  .container
+    max-width: 940px
+    padding: 7px 0
+    border-top: 1px solid #e6e6e6
+  &__logo
+    max-width: 147px
+    width: 45%
+    img
+      width: 100%
+      height: auto
+  &__wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+  &__middle
+    display: flex
+    align-items: center
+    margin: 0 auto
+    padding: 0 10px
+  &__info
+    font-size: 12px
+    text-align: center
+    line-height: 1.4
+    a
+      font-size: 12px
+      font-weight: 400
+      span
+        font-weight: 700
+        border-bottom: 1px solid $fontColor
+  &__links
+    display: flex
+    flex-wrap: wrap
+    margin-left: auto
+    max-width: 127px
+    min-width: 127px
+    justify-content: flex-end
+  &__phone
+    font-weight: 700
+    font-size: 12px
+    color: $fontColor
+    border-bottom: 1px solid transparent
+    transition: .25s $ease
+    &:hover
+      color: #6d6c6c
+      border-color: #6d6c6c
+  &__mail
+    font-weight: 400
+    font-size: 12px
+    color: $colorBlue
+    border-bottom: 1px solid $colorBlue
+    margin-top: 5px
+    letter-spacing: 0.1px
+    transition: .25s $ease
+    &:hover
+      color: #2887e8
+      border-color: transparent
+
 +r($mobile)
-	.footer
-		padding: 0 10px
-		.container
-			padding: 15px 0
-		&__wrapper
-			flex-wrap: wrap
-			flex-direction: column-reverse
-		&__logo
-			display: none
-		&__middle
-			text-align: center
-			width: 100%
-			margin-top: 15px
-			padding: 0
-		&__info
-			margin: 0 auto
-			a
-				display: block
-		&__links
-			width: 100%
-			max-width: 100%
-			justify-content: center
-			margin-top: 0
-			flex-wrap: wrap
-		&__phone
-			width: 100%
-			text-align: center
-		&__mail
-			width: auto
-			text-align: center
-				
+  .footer
+    padding: 0 10px
+    .container
+      padding: 15px 0
+    &__wrapper
+      flex-wrap: wrap
+      flex-direction: column-reverse
+    &__logo
+      display: none
+    &__middle
+      text-align: center
+      width: 100%
+      margin-top: 15px
+      padding: 0
+    &__info
+      margin: 0 auto
+      a
+        display: block
+    &__links
+      width: 100%
+      max-width: 100%
+      justify-content: center
+      margin-top: 0
+      flex-wrap: wrap
+    &__phone
+      width: 100%
+      text-align: center
+    &__mail
+      width: auto
+      text-align: center
