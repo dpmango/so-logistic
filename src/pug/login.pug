@@ -8,13 +8,13 @@ block content
   .login
     form.login__form(action='#')
       p.login__title Вход в личный кабинет
-      .login__input-container
+      .ui-group
         label логин
-        input(type='text', name='name', placeholder='sibblogistic')
-      .login__input-container
+        input(type='text', name='name', placeholder='sibblogistic').ui-input
+      .ui-group
         label пароль
-        input(type='password', name='password', placeholder='********')
-      input(type='submit', value='войти')
-      p.login__error Ошибка: Такой учетной записи не найдено
+        input(type='password', name='password', placeholder='********').ui-input
+      button(type='submit').btn.btn-primary Войти
+      p.login__error ошибка из validateSubmitHandler
 
 block footer

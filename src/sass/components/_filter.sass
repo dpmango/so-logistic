@@ -7,27 +7,9 @@
   display: flex
   justify-content: space-between
   align-items: flex-end
-  input[type=text]
-    font-size: 12px
-    color: $fontColor
-    border: 1px solid $borderColor
-    // border-top: 2px solid $borderColor
-    box-shadow: inset 0px 1px 1px 0px rgba(0,0,0,0.07)
-    border-radius: 5px
+  .ui-input
     min-width: 105px
     width: 100%
-    padding: 10px
-    &:focus
-      border-color: #d8d7d7
-      box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.1), inset -1px -1px 2px 0px rgba(0, 0, 0, 0.1)
-    &::-webkit-input-placeholder
-      color:#cdcdcd
-    &::-moz-placeholder
-      color:#cdcdcd
-    &:-moz-placeholder
-      color:#cdcdcd
-    &:-ms-input-placeholder
-      color:#cdcdcd
   p
     text-transform: uppercase
     font-weight: 700
@@ -43,13 +25,9 @@
     align-items: center
     p
       margin: 0 4px
-    input[type=text]
-      box-shadow: none
+    .ui-input
       min-width: 0
       width: 110px
-      &:focus
-        border-color: #d8d7d7
-        box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.1), inset -1px -1px 2px 0px rgba(0, 0, 0, 0.1)
     .input-container
       position: relative
       transition: all 0s $ease
@@ -68,59 +46,7 @@
           font-size: 18px
           transition: all 0.25s $ease
   &__status
-    .selectricWrapper.selectricOpen
-      .selectric
-        border-bottom-left-radius: 0
-        border-bottom-right-radius: 0
-        .button
-          &:after
-            transform: rotate(225deg)
-            top: 4px
-    .selectric
-      min-width: 130px
-      background: #fff
-      border-radius: 5px
-      transition: all 0s $ease
-      font-size: 12px
-      color: $fontColor
-      font-weight: 400
-      border: 1px solid $borderColor
-      .label
-        padding: 8px 6px 7px
-        font-size: 12px
-        font-weight: 400
-        text-transform: none
-        box-sizing: border-box
-        color: $fontColor
-        margin-right: 15px
-      .button
-        height: 30px
-        width: 20px
-        &:after
-          border: none
-          width: 6px
-          height: 6px
-          background-size: contain
-          border: 2px solid #5a9ee4
-          transform: rotate(45deg)
-          border-left: none
-          border-top: none
-          transition: all 0.25s $ease
-    .selectricItems
-      box-shadow: none
-      margin-top: -1px
-      border-bottom-left-radius: 5px
-      border-bottom-right-radius: 5px
-      border: 1px solid $borderColor
-      li
-        padding: 8px 10px
-        background: #fff
-        border: none
-        transition: .25s $ease
-        &.li-selected
-        &:hover
-          background: #2887e8
-          color: #fff
+
   &__buttons
     align-self: flex-end
     justify-content: space-between
@@ -184,7 +110,7 @@
       .input-container
         width: 50%
     &__date-inputs
-      input[type=text]
+      .ui-input
         width: 100%
     &__status
       width: 100%

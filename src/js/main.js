@@ -208,35 +208,37 @@ $(document).ready(function() {
     }
     var validateSubmitHandler = function(form) {
       $(form).addClass('loading');
-      $.ajax({
-        type: "POST",
-        url: $(form).attr('action'),
-        data: $(form).serialize(),
-        success: function(response) {
-          $(form).removeClass('loading');
-          var data = $.parseJSON(response);
-          if (data.status == 'success') {
-            // do something I can't test
-          } else {
-            $(form).find('[data-error]').html(data.message).show();
-          }
-        }
-      });
+      // $.ajax({
+      //   type: "POST",
+      //   url: $(form).attr('action'),
+      //   data: $(form).serialize(),
+      //   success: function(response) {
+      //     $(form).removeClass('loading');
+      //     var data = $.parseJSON(response);
+      //     if (data.status == 'success') {
+      //       // do something I can't test
+      //     } else {
+      //       $(form).find('.login__error').html(data.message).css({'opacity': 1});
+      //     }
+      //   }
+      // });
+
+      window.location.href= '/log-page.html'
     }
 
-    var validatePhone = {
-      required: true,
-      normalizer: function(value) {
-        var PHONE_MASK = '+X (XXX) XXX-XXXX';
-        if (!value || value === PHONE_MASK) {
-          return value;
-        } else {
-          return value.replace(/[^\d]/g, '');
-        }
-      },
-      minlength: 11,
-      digits: true
-    }
+    // var validatePhone = {
+    //   required: true,
+    //   normalizer: function(value) {
+    //     var PHONE_MASK = '+X (XXX) XXX-XXXX';
+    //     if (!value || value === PHONE_MASK) {
+    //       return value;
+    //     } else {
+    //       return value.replace(/[^\d]/g, '');
+    //     }
+    //   },
+    //   minlength: 11,
+    //   digits: true
+    // }
 
     ////////
     // FORMS
@@ -257,8 +259,11 @@ $(document).ready(function() {
         }
       },
       messages: {
-        name: "Ошибка! Заполните это поле.",
-        password: "Ошибка! Заполните это поле.",
+        name: "Заполните это поле",
+        password: {
+          required: "Заполните это поле",
+          minlength: "Пароль мимимум 6 символов"
+        },
       }
     });
 

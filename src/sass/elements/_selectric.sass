@@ -1,0 +1,53 @@
+.selectricWrapper.selectricOpen
+  .selectric
+    border-bottom-left-radius: 0
+    border-bottom-right-radius: 0
+    .button
+      &:after
+        transform: rotate(225deg)
+        top: 4px
+.selectric
+  min-width: 130px
+  background: #fff
+  border-radius: 5px
+  transition: all 0s $ease
+  font-size: 12px
+  color: $fontColor
+  font-weight: 400
+  border: 1px solid $borderColor
+  .label
+    padding: 8px 6px 7px
+    font-size: 12px
+    font-weight: 400
+    text-transform: none
+    box-sizing: border-box
+    color: $fontColor
+    margin-right: 15px
+  .button
+    height: 30px
+    width: 20px
+    &:after
+      border: none
+      width: 6px
+      height: 6px
+      background-size: contain
+      border: 2px solid #5a9ee4
+      transform: rotate(45deg)
+      border-left: none
+      border-top: none
+      transition: all 0.25s $ease
+.selectricItems
+  box-shadow: none
+  margin-top: -1px
+  border-bottom-left-radius: 5px
+  border-bottom-right-radius: 5px
+  border: 1px solid $borderColor
+  li
+    padding: 8px 10px
+    background: #fff
+    border: none
+    transition: .25s $ease
+    &.li-selected
+    &:hover
+      background: #2887e8
+      color: #fff
