@@ -147,23 +147,24 @@
 
 
 
-.full-info__title
-  font-size: 14px
-  color: $fontColor
-  font-weight: 700
-  line-height: 1.2
-  margin-bottom: 5px
-.full-info__grid
-  display: flex
-  max-width: 400px
-  width: 100%
-  flex-wrap: wrap
-  .row
+.full-info
+  &__title
+    font-size: 14px
+    color: $fontColor
+    font-weight: 700
+    line-height: 1.2
+    margin-bottom: 5px
+  &__grid
+    display: flex
+    max-width: 400px
+    width: 100%
+    flex-wrap: wrap
+  &__row
     width: 100%
     display: flex
     justify-content: flex-start
     margin-top: 10px
-  .left-side
+  &__left
     min-width: 150px
     margin-right: 25px
     line-height: 1.5
@@ -172,7 +173,7 @@
     p
       font-size: 12px
       color: #909090
-  .right-side
+  &__right
     line-height: 1.5
     display: flex
     align-items: center
@@ -266,17 +267,18 @@
     &__comment
       font-size: 12px
 
-  .full-info__grid
-    display: flex
-    max-width: 400px
-    width: 100%
-    flex-wrap: wrap
-    .row
+  .full-info
+    &__grid
+      display: flex
+      max-width: 400px
+      width: 100%
+      flex-wrap: wrap
+    &__row
       width: 100%
       display: flex
       margin-top: 10px
       flex-wrap: wrap
-    .left-side
+    &__left
       min-width: 100%
-    .right-side
+    &__right
       width: 100%
