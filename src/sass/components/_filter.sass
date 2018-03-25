@@ -1,0 +1,202 @@
+/* FILTER
+.filter
+	background: #fff
+	padding: 15px 30px
+	border-radius: 5px
+	margin-bottom: 15px
+	display: flex
+	justify-content: space-between
+	align-items: flex-end
+	input[type=text]
+		font-size: 12px
+		color: $fontColor
+		border: 1px solid $borderColor
+		// border-top: 2px solid $borderColor
+		box-shadow: inset 0px 1px 1px 0px rgba(0,0,0,0.07)
+		border-radius: 5px
+		min-width: 105px
+		width: 100%
+		padding: 10px
+		&:focus
+			border-color: #d8d7d7
+			box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.1), inset -1px -1px 2px 0px rgba(0, 0, 0, 0.1)
+		&::-webkit-input-placeholder
+			color:#cdcdcd
+		&::-moz-placeholder
+			color:#cdcdcd
+		&:-moz-placeholder
+			color:#cdcdcd
+		&:-ms-input-placeholder
+			color:#cdcdcd
+	p
+		text-transform: uppercase
+		font-weight: 700
+		font-size: 12px
+		margin-bottom: 7px
+	&__number
+		width: 24%
+	&__date
+		margin: 0 1.5%
+	&__date-inputs
+		display: flex
+		justify-content: space-bwtween
+		align-items: center
+		p
+			margin: 0 4px
+		input[type=text]
+			box-shadow: none
+			min-width: 0
+			width: 110px
+			&:focus
+				border-color: #d8d7d7
+				box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.1), inset -1px -1px 2px 0px rgba(0, 0, 0, 0.1)
+		.input-container
+			position: relative
+			transition: all 0s $ease
+			&:hover
+				label
+					color: #2887e8
+			label
+				position: absolute
+				z-index: 2
+				right: 10px
+				top: 8px
+				color: #b9b8b9
+				cursor: pointer
+				transition: all 0.25s $ease
+				.ico
+					font-size: 18px
+					transition: all 0.25s $ease
+	&__status
+		.selectricWrapper.selectricOpen
+			.selectric
+				border-bottom-left-radius: 0
+				border-bottom-right-radius: 0
+				.button
+					&:after
+						transform: rotate(225deg)
+						top: 4px
+		.selectric
+			min-width: 130px
+			background: #fff
+			border-radius: 5px
+			transition: all 0s $ease
+			font-size: 12px
+			color: $fontColor
+			font-weight: 400
+			border: 1px solid $borderColor
+			.label
+				padding: 8px 6px 7px
+				font-size: 12px
+				font-weight: 400
+				text-transform: none
+				box-sizing: border-box
+				color: $fontColor
+				margin-right: 15px
+			.button
+				height: 30px
+				width: 20px
+				&:after
+					border: none
+					width: 6px
+					height: 6px
+					background-size: contain
+					border: 2px solid #5a9ee4
+					transform: rotate(45deg)
+					border-left: none
+					border-top: none
+					transition: all 0.25s $ease
+		.selectricItems
+			box-shadow: none
+			margin-top: -1px
+			border-bottom-left-radius: 5px
+			border-bottom-right-radius: 5px
+			border: 1px solid $borderColor
+			li
+				padding: 8px 10px
+				background: #fff
+				border: none
+				transition: .25s $ease
+				&.li-selected
+				&:hover
+					background: #2887e8
+					color: #fff
+	&__buttons
+		align-self: flex-end
+		justify-content: space-between
+		flex-wrap: no-wrap
+		display: flex
+		align-items: center
+		margin-left: 1.5%
+		input[type=submit]
+			width: 100%
+			max-width: 120px
+			font-size: 12px
+			padding: 11px 16px
+			background: #2887e8
+			transition: all 0.25s $ease
+			font-weight: 700
+			color: #fff
+			border-radius: 50px
+			border: none
+			margin: 0 auto
+			cursor: pointer
+			text-transform: uppercase
+			transition: .25s $ease
+			&:hover
+				background: #48a3ff
+		a.clear-all
+			font-size: 12px
+			color: #838383
+			align-self: center
+			margin-left: 10px
+			border-bottom: 1px solid transparent
+			transition: .25s $ease
+			&:hover
+				color: #5a5959
+				border-color: #5a5959
+
+
++r($tablet)
+	.filter
+		flex-wrap: wrap
+		&__number
+			width: 24%
+		&__date
+			width: auto
+		&__status
+			width: 23%
+		&__buttons
+			width: 100%
+			margin: 15px 0 0 0
+			a.clear-all
+				margin-left: 0
+
++r($mobile)
+  .filter
+		flex-wrap: wrap
+		padding: 20px 15px
+		&__number
+			width: 100%
+		&__date
+			width: 100%
+			margin: 15px 0 0 0
+			.input-container
+				width: 50%
+		&__date-inputs
+			input[type=text]
+				width: 100%
+		&__status
+			width: 100%
+			margin-top: 15px
+		&__buttons
+			width: 100%
+			margin: 15px 0 0 0
+			justify-content: space-between
+			input[type=submit]
+				width: 100%
+				width: 60%
+				max-width: 100%
+				margin: 0
+			a.clear-all
+				margin-left: 0

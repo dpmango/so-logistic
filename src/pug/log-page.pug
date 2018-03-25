@@ -2,434 +2,267 @@
 title: Log-page
 ---
 extends shared/_layout
-//- block header
 block content
 	// Begin log-page
-	//- .wrapper-main
 	.log-head
 		.container
 			h1 Журнал поставок
-	.log-body
+			
+	.log
 		.container.container--full
-			form.journal(method='post')
-				.journal__number
-					p Номер партии
-					input(type='text' name='number' placeholder='01-585494-52')
-				.journal__date
-					p дата завершения
-					.journal__date-inputs
-						.input-container
-							label(for='txtFromDate')
-								+icon('ico-date')
-							<input type="text" id="txtFromDate" name="from">
-						p —
-						.input-container
-							label(for='txtToDate')
-								+icon('ico-date')
-							<input type="text" id="txtToDate" name="to">
-				.journal__status
-					p статус
-					select
-						option(value='Все') Все
-						option(value='Незавершенные') Незавершенные
-						option(value='Завершенные') Завершенные
-				.journal__buttons
-					input(type='submit' value='применить')
-					a.clear-all(href='#') Очистить
-			.log-body__item.is-open
-				.log-body__item-head
-					p.log-body__number №01-585494-95
-					.log-body__vertical-line
-					.log-body__status 
-						.log-body__way
-						.log-body__success-way(style='width:10%')
-					.log-body__vertical-line
-					.log-body__info
-						p.log-body__date 02.11.2017
-						p.log-body__delivery-status Доставка до материка
-						p.log-body__comment Отправлено поставщиком
-					a.log-body__open-item.open-button(href='#')
+			include components/_filter
+			
+			// ITEMS
+			// item
+			.log__item.is-open
+				.log__item-head
+					span.log__number №01-585494-95
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:10%')
+					.log__info
+						span.log__date 02.11.2017
+						span.log__delivery-status Доставка до материка
+						span.log__comment Отправлено поставщиком
+					.log__toggler
 						+icon('ico-arrow')
-				.log-body__full-way
-					.steps#steps(data-active-step='4')
-						.steps__item
-							p.steps__days 888 дн.
-							.progress-bar
-								.ship.icon
-									+icon('ico-ship')
-								.tooltip
-									.tooltip__grid
-										.row
-											p.tooltip__date 09.10.2017, 08:53
-											p.tooltip__info Груз прибыл в порт
-										.row
-											p.tooltip__date 09.10.2017, 12:40
-											p.tooltip__info Груз перемещен в зону сортировки
-										.row
-											p.tooltip__date 10.10.2017, 02:01
-											p.tooltip__info Груз отправлен из порта
-							.steps__info
-								.reverse-block
-									p.steps__info-title Отправлено поставщиком
-									p.steps__info-date 02.10.2017
-								p.steps__info-comment Отправлено со склада в Москве
-						.steps__item
-							p.steps__days 5 дн.
-							.progress-bar
-								.plane.icon
-									+icon('ico-plane')
-							.steps__info
-								.reverse-block
-									p.steps__info-title Доставка до материка
-									p.steps__info-date 17.10.2017
-								p.steps__info-comment Отправлено со склада в Москве
-						.steps__item
-							p.steps__days 1 дн.
-							.progress-bar
-								.truck.icon
-									+icon('ico-truck')
-							.steps__info
-								.reverse-block
-									p.steps__info-title Доставка до РФ
-									p.steps__info-date 19.10.2017
-								p.steps__info-comment Отправлено со склада в Москве
-						.steps__item
-							p.steps__days 14 дн.
-							.progress-bar
-								.train.icon
-									+icon('ico-train')
-							.steps__info
-								.reverse-block
-									p.steps__info-title Таможня
-									p.steps__info-date 20.10.2017
-								p.steps__info-comment Отправлено со склада в Москве
-						.steps__item
-							p.steps__days 28 дн.
-							.progress-bar
-								.train.icon
-									+icon('ico-train')
-							.steps__info
-								.reverse-block
-									p.steps__info-title Доставка по РФ
-									p.steps__info-date 20.10.2017
-								p.steps__info-comment Отправлено со склада в Москве
-						.steps__item
-							p.steps__days 28 дн.
-							.progress-bar
-								.train.icon
-									+icon('ico-train')
-							.steps__info
-								.reverse-block
-									p.steps__info-title Получено
-									p.steps__info-date 20.10.2017
-								p.steps__info-comment Отправлено со склада в Москве
-						//- .steps__item
-						//- 	p.steps__days 28 дн.
-						//- 	.progress-bar
-						//- 		.train.icon
-						//- 			+icon('ico-train')
-						//- 	.steps__info
-						//- 		p.steps__info-title Доставка до склада
-						//- 		p.steps__info-date 20.10.2017
-						//- 		p.steps__info-comment Отправлено со склада в Москве
-						//- .steps__item
-						//- 	p.steps__days 28 дн.
-						//- 	.progress-bar
-						//- 		.train.icon
-						//- 			+icon('ico-train')
-						//- 	.steps__info
-						//- 		p.steps__info-title Доставка до склада
-						//- 		p.steps__info-date 20.10.2017
-						//- 		p.steps__info-comment Отправлено со склада в Москве
-						//- .steps__item
-						//- 	p.steps__days 28 дн.
-						//- 	.progress-bar
-						//- 		.train.icon
-						//- 			+icon('ico-train')
-						//- 	.steps__info
-						//- 		p.steps__info-title Доставка до склада
-						//- 		p.steps__info-date 20.10.2017
-						//- 		p.steps__info-comment Отправлено со склада в Москве
-						//- .steps__item
-						//- 	p.steps__days 28 дн.
-						//- 	.progress-bar
-						//- 		.train.icon
-						//- 			+icon('ico-train')
-						//- 	.steps__info
-						//- 		p.steps__info-title Доставка до склада
-						//- 		p.steps__info-date 20.10.2017
-						//- 		p.steps__info-comment Отправлено со склада в Москве
-						//- .steps__item
-						//- 	p.steps__days 28 дн.
-						//- 	.progress-bar
-						//- 		.train.icon
-						//- 			+icon('ico-train')
-						//- 	.steps__info
-						//- 		p.steps__info-title Доставка до склада
-						//- 		p.steps__info-date 20.10.2017
-						//- 		p.steps__info-comment Отправлено со склада в Москве
-						//- .steps__item
-						//- 	p.steps__days 28 дн.
-						//- 	.progress-bar
-						//- 		.train.icon
-						//- 			+icon('ico-train')
-						//- 	.steps__info
-						//- 		p.steps__info-title Доставка до склада
-						//- 		p.steps__info-date 20.10.2017
-						//- 		p.steps__info-comment Отправлено со склада в Москве
-						//- .steps__item
-						//- 	p.steps__days 28 дн.
-						//- 	.progress-bar
-						//- 		.train.icon
-						//- 			+icon('ico-train')
-						//- 	.steps__info
-						//- 		p.steps__info-title Доставка до склада
-						//- 		p.steps__info-date 20.10.2017
-						//- 		p.steps__info-comment Отправлено со склада в Москве
-
-				.log-body__full-info
-					h2.full-info__title Информация о заказе
-					.full-info__grid
-						.row
-							.left-side
-								p Текущее состояние:
-							.right-side
-								p 
-									strong Доставка по РФ
-						.row
-							.left-side
-								p Наименование партии:
-							.right-side
-								p 05150439435
-						.row
-							.left-side
-								p Документы:
-							.right-side
-								a(href='#') Накладная №01-5395-548
-						.row
-							.left-side
-								p Комментарий:
-							.right-side
-								p Требуется оплата доставки
-			.log-body__item
-				.log-body__item-head
-					p.log-body__number №01-585494-95
-					.log-body__vertical-line
-					.log-body__status 
-						.log-body__way
-						.log-body__success-way(style='width:10%')
-					.log-body__vertical-line
-					.log-body__info
-						p.log-body__date 02.11.2017
-						p.log-body__delivery-status Доставка до материка
-						p.log-body__comment Отправлено поставщиком
-					a.log-body__open-item.open-button(href='#')
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-6
+						
+					.log__full-info
+						h2.full-info__title Информация о заказе
+						.full-info__grid
+							.row
+								.left-side
+									p Текущее состояние:
+								.right-side
+									p 
+										strong Доставка по РФ
+							.row
+								.left-side
+									p Наименование партии:
+								.right-side
+									p 05150439435
+							.row
+								.left-side
+									p Документы:
+								.right-side
+									a(href='#') Накладная №01-5395-548
+							.row
+								.left-side
+									p Комментарий:
+								.right-side
+									p Требуется оплата доставки
+			// item
+			.log__item
+				.log__item-head
+					span.log__number №01-585494-95
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:10%')
+					.log__info
+						span.log__date 02.11.2017
+						span.log__delivery-status Доставка до материка
+						span.log__comment Отправлено поставщиком
+					.log__toggler
 						+icon('ico-arrow')
-				.log-body__full-way
-				.log-body__full-info
-					h2.full-info__title Информация о заказе
-					.full-info__grid
-						.row
-							.left-side
-								p Текущее состояние:
-							.right-side
-								p 
-									strong Доставка по РФ
-						.row
-							.left-side
-								p Наименование партии:
-							.right-side
-								p 05150439435
-						.row
-							.left-side
-								p Документы:
-							.right-side
-								a(href='#') Накладная №01-5395-548
-						.row
-							.left-side
-								p Комментарий:
-							.right-side
-								p Требуется оплата доставки	
-			.log-body__item
-				.log-body__item-head
-					p.log-body__number №01-585494-17
-					.log-body__vertical-line
-					.log-body__status 
-						.log-body__way
-						.log-body__success-way(style='width:100%')
-					.log-body__vertical-line
-					.log-body__info
-						p.log-body__date 24.10.2017
-						p.log-body__delivery-status Доставлено
-						p.log-body__comment Принято получателем
-					a.log-body__open-item.open-button(href='#')
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-6
+					.log__full-info
+						h2.full-info__title Информация о заказе
+						.full-info__grid
+							.row
+								.left-side
+									p Текущее состояние:
+								.right-side
+									p 
+										strong Доставка по РФ
+							.row
+								.left-side
+									p Наименование партии:
+								.right-side
+									p 05150439435
+							.row
+								.left-side
+									p Документы:
+								.right-side
+									a(href='#') Накладная №01-5395-548
+							.row
+								.left-side
+									p Комментарий:
+								.right-side
+									p Требуется оплата доставки	
+			// item
+			.log__item
+				.log__item-head
+					span.log__number №01-585494-17
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:100%')
+					.log__info
+						span.log__date 24.10.2017
+						span.log__delivery-status Доставлено
+						span.log__comment Принято получателем
+					.log__toggler
 						+icon('ico-arrow')
-				.log-body__full-way
-				.log-body__full-info
-					h2.full-info__title Информация о заказе
-					.full-info__grid
-						.row
-							.left-side
-								p Текущее состояние:
-							.right-side
-								p 
-									strong Доставка по РФ
-						.row
-							.left-side
-								p Наименование партии:
-							.right-side
-								p 05150439435
-						.row
-							.left-side
-								p Документы:
-							.right-side
-								a(href='#') Накладная №01-5395-548
-						.row
-							.left-side
-								p Комментарий:
-							.right-side
-								p Требуется оплата доставки
-
-			.log-body__item
-				.log-body__item-head
-					p.log-body__number №00-559502-98
-					.log-body__vertical-line
-					.log-body__status 
-						.log-body__way
-						.log-body__success-way(style='width:40%')
-					.log-body__vertical-line
-					.log-body__info
-						p.log-body__date 18.10.2017
-						p.log-body__delivery-status Таможня
-						p.log-body__comment Ожидает проверки
-					a.log-body__open-item.open-button(href='#')
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-6
+					.log__full-info
+						h2.full-info__title Информация о заказе
+						.full-info__grid
+							.row
+								.left-side
+									p Текущее состояние:
+								.right-side
+									p 
+										strong Доставка по РФ
+							.row
+								.left-side
+									p Наименование партии:
+								.right-side
+									p 05150439435
+							.row
+								.left-side
+									p Документы:
+								.right-side
+									a(href='#') Накладная №01-5395-548
+							.row
+								.left-side
+									p Комментарий:
+								.right-side
+									p Требуется оплата доставки
+			
+			// item
+			.log__item
+				.log__item-head
+					span.log__number №00-559502-98
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:40%')
+					.log__info
+						span.log__date 18.10.2017
+						span.log__delivery-status Таможня
+						span.log__comment Ожидает проверки
+					.log__toggler
 						+icon('ico-arrow')
-				.log-body__full-way
-				.log-body__full-info
-					h2.full-info__title Информация о заказе
-					.full-info__grid
-						.row
-							.left-side
-								p Текущее состояние:
-							.right-side
-								p 
-									strong Доставка по РФ
-						.row
-							.left-side
-								p Наименование партии:
-							.right-side
-								p 05150439435
-						.row
-							.left-side
-								p Документы:
-							.right-side
-								a(href='#') Накладная №01-5395-548
-						.row
-							.left-side
-								p Комментарий:
-							.right-side
-								p Требуется оплата доставки
-
-			.log-body__item
-				.log-body__item-head
-					p.log-body__number №00-559552-13
-					.log-body__vertical-line
-					.log-body__status 
-						.log-body__way
-						.log-body__success-way(style='width:70%')
-					.log-body__vertical-line
-					.log-body__info
-						p.log-body__date 15.10.2017
-						p.log-body__delivery-status Доставка до склада
-						p.log-body__comment Принято на склад
-					a.log-body__open-item.open-button(href='#')
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-6
+					.log__full-info
+						h2.full-info__title Информация о заказе
+						.full-info__grid
+							.row
+								.left-side
+									p Текущее состояние:
+								.right-side
+									p 
+										strong Доставка по РФ
+							.row
+								.left-side
+									p Наименование партии:
+								.right-side
+									p 05150439435
+							.row
+								.left-side
+									p Документы:
+								.right-side
+									a(href='#') Накладная №01-5395-548
+							.row
+								.left-side
+									p Комментарий:
+								.right-side
+									p Требуется оплата доставки
+			
+			// item
+			.log__item
+				.log__item-head
+					span.log__number №00-559552-13
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:70%')
+					.log__info
+						span.log__date 15.10.2017
+						span.log__delivery-status Доставка до склада
+						span.log__comment Принято на склад
+					.log__toggler
 						+icon('ico-arrow')
-				.log-body__full-way
-				.log-body__full-info
-					h2.full-info__title Информация о заказе
-					.full-info__grid
-						.row
-							.left-side
-								p Текущее состояние:
-							.right-side
-								p 
-									strong Доставка по РФ
-						.row
-							.left-side
-								p Наименование партии:
-							.right-side
-								p 05150439435
-						.row
-							.left-side
-								p Документы:
-							.right-side
-								a(href='#') Накладная №01-5395-548
-						.row
-							.left-side
-								p Комментарий:
-							.right-side
-								p Требуется оплата доставки
-
-			.log-body__item
-				.log-body__item-head
-					p.log-body__number №00-559502-58
-					.log-body__vertical-line
-					.log-body__status 
-						.log-body__way
-						.log-body__success-way(style='width:1%')
-					.log-body__vertical-line
-					.log-body__info
-						p.log-body__date 13.10.2017
-						p.log-body__delivery-status Ожидает отправки
-						p.log-body__comment Заказ еще не отправлен
-					a.log-body__open-item.open-button(href='#')
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-6
+					.log__full-info
+						h2.full-info__title Информация о заказе
+						.full-info__grid
+							.row
+								.left-side
+									p Текущее состояние:
+								.right-side
+									p 
+										strong Доставка по РФ
+							.row
+								.left-side
+									p Наименование партии:
+								.right-side
+									p 05150439435
+							.row
+								.left-side
+									p Документы:
+								.right-side
+									a(href='#') Накладная №01-5395-548
+							.row
+								.left-side
+									p Комментарий:
+								.right-side
+									p Требуется оплата доставки
+			
+			// item
+			.log__item
+				.log__item-head
+					span.log__number №00-559502-58
+					.log__status 
+						.log__status-path
+						.log__status-fill(style='width:1%')
+					.log__info
+						span.log__date 13.10.2017
+						span.log__delivery-status Ожидает отправки
+						span.log__comment Заказ еще не отправлен
+					.log__toggler
 						+icon('ico-arrow')
-				.log-body__full-way
-				.log-body__full-info
-					h2.full-info__title Информация о заказе
-					.full-info__grid
-						.row
-							.left-side
-								p Текущее состояние:
-							.right-side
-								p 
-									strong Доставка по РФ
-						.row
-							.left-side
-								p Наименование партии:
-							.right-side
-								p 05150439435
-						.row
-							.left-side
-								p Документы:
-							.right-side
-								a(href='#') Накладная №01-5395-548
-						.row
-							.left-side
-								p Комментарий:
-							.right-side
-								p Требуется оплата доставки
-	.pagination-container
-		.container
-			.pagination__grid
-				.left-side
-					p.left-side__title Показывать на странице:
-					select
-						option(value='1') 1
-						option(value='10') 10
-						option(value='100') 100
-				.right-side
-					#pagination
-						ul
-							li
-								a(href='#') <
-							li.active
-								a(href='#') 1
-							li
-								a(href='#') 2
-							li
-								a(href='#') ...
-							li
-								a(href='#') 40
-							li
-								a(href='#') >
+						
+				// dropdown
+				.log__dropdown
+					.log__full-way
+						include components/_steps-6
+					.log__full-info
+						h2.full-info__title Информация о заказе
+						.full-info__grid
+							.row
+								.left-side
+									p Текущее состояние:
+								.right-side
+									p 
+										strong Доставка по РФ
+							.row
+								.left-side
+									p Наименование партии:
+								.right-side
+									p 05150439435
+							.row
+								.left-side
+									p Документы:
+								.right-side
+									a(href='#') Накладная №01-5395-548
+							.row
+								.left-side
+									p Комментарий:
+								.right-side
+									p Требуется оплата доставки
+	
+	include components/_pagination

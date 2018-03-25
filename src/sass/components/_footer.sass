@@ -32,7 +32,7 @@
 			font-weight: 400
 			span
 				font-weight: 700
-				border-bottom: 1px solid #444
+				border-bottom: 1px solid $fontColor
 	&__links
 		display: flex
 		flex-wrap: wrap
@@ -43,22 +43,24 @@
 	&__phone
 		font-weight: 700
 		font-size: 12px
-		color: #444444
+		color: $fontColor
 		border-bottom: 1px solid transparent
+		transition: .25s $ease
 		&:hover
 			color: #6d6c6c
 			border-color: #6d6c6c
 	&__mail
 		font-weight: 400
 		font-size: 12px
-		color: #106bb5
-		border-bottom: 1px solid #106bb5
+		color: $colorBlue
+		border-bottom: 1px solid $colorBlue
 		margin-top: 5px
 		letter-spacing: 0.1px
+		transition: .25s $ease
 		&:hover
 			color: #2887e8
 			border-color: transparent
-			
+
 +r($mobile)
 	.footer
 		padding: 0 10px
@@ -90,4 +92,3 @@
 		&__mail
 			width: auto
 			text-align: center
-				

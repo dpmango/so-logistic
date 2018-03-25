@@ -1,138 +1,5 @@
 $(document).ready(function() {
 
-    $('select').selectric();
-
-    $(".steps").each(function () {
-      var countLi = $(this).find('.steps__item').length;
-      console.log(countLi);
-      if (countLi > 10) {
-        $('.steps__item').addClass('responsive--edit');
-      }
-    })
-
-    $(document).on('click', '.open-button', function(e) {
-        e.preventDefault();
-        $(this).parent().parent().toggleClass('is-open');
-    });
-
-    // Fillings steps
-        (function(){
-            var $steps = $('#steps');
-        var $stepsChilds = $steps.children();
-        var productStep = parseInt($steps.data('active-step'));
-        
-        if (typeof productStep == 'number' && $stepsChilds.length > 1) {
-            $($stepsChilds[productStep]).addClass('in-progress')
-          
-            for (var i = 0; i <= productStep - 1;i++) {
-            $($stepsChilds[i]).addClass('is-active')
-          }
-        } else {
-            console.warn('Ooops! Smth. wrong')
-        }
-      }());
-
-    var daysToAdd = 1;
-    $("#txtFromDate").datepicker({
-        onSelect: function (selected) {
-            var dtMax = new Date(selected);
-            dtMax.setDate(dtMax.getDate() + daysToAdd); 
-            var dd = dtMax.getDate();
-            var mm = dtMax.getMonth() + 1;
-            var y = dtMax.getFullYear();
-            var dtFormatted = mm + '/'+ dd + '/'+ y;
-            $("#txtToDate").datepicker("option", "minDate", dtFormatted);
-        }
-    });
-    
-    $("#txtToDate").datepicker({
-        onSelect: function (selected) {
-            var dtMax = new Date(selected);
-            dtMax.setDate(dtMax.getDate() - daysToAdd); 
-            var dd = dtMax.getDate();
-            var mm = dtMax.getMonth() + 1;
-            var y = dtMax.getFullYear();
-            var dtFormatted = mm + '/'+ dd + '/'+ y;
-            $("#txtFromDate").datepicker("option", "maxDate", dtFormatted)
-        }
-    });
-
-    // // PAGINATION
-
-
-    // let pages = 25;
-
-    // document.getElementById('pagination').innerHTML = createPagination(pages, 12);
-
-    // function createPagination(pages, page) {
-    //     let str = '<ul>';
-    //     let active;
-    //     let pageCutLow = page - 1;
-    //     let pageCutHigh = page + 1;
-    //     // Show the Previous button only if you are on a page other than the first
-    //     if (page > 1) {
-    //         str += '<li class="page-item previous no"><a onclick="createPagination(pages, ' + (page - 1) + ')"><</a></li>';
-    //     }
-    //     // Show all the pagination elements if there are less than 6 pages total
-    //     if (pages < 6) {
-    //         for (let p = 1; p <= pages; p++) {
-    //             active = page == p ? "active" : "no";
-    //             str += '<li class="' + active + '"><a onclick="createPagination(pages, ' + p + ')">' + p + '</a></li>';
-    //         }
-    //     }
-    //     // Use "..." to collapse pages outside of a certain range
-    //     else {
-    //         // Show the very first page followed by a "..." at the beginning of the
-    //         // pagination section (after the Previous button)
-    //         if (page > 2) {
-    //             str += '<li class="no page-item"><a onclick="createPagination(pages, 1)">1</a></li>';
-    //             if (page > 3) {
-    //                 str += '<li class="out-of-range"><a onclick="createPagination(pages,' + (page - 2) + ')">...</a></li>';
-    //             }
-    //         }
-    //         // Determine how many pages to show after the current page index
-    //         if (page === 1) {
-    //             pageCutHigh += 2;
-    //         } else if (page === 2) {
-    //             pageCutHigh += 1;
-    //         }
-    //         // Determine how many pages to show before the current page index
-    //         if (page === pages) {
-    //             pageCutLow -= 2;
-    //         } else if (page === pages - 1) {
-    //             pageCutLow -= 1;
-    //         }
-    //         // Output the indexes for pages that fall inside the range of pageCutLow
-    //         // and pageCutHigh
-    //         for (let p = pageCutLow; p <= pageCutHigh; p++) {
-    //             if (p === 0) {
-    //                 p += 1;
-    //             }
-    //             if (p > pages) {
-    //                 continue
-    //             }
-    //             active = page == p ? "active" : "no";
-    //             str += '<li class="page-item ' + active + '"><a onclick="createPagination(pages, ' + p + ')">' + p + '</a></li>';
-    //         }
-    //         // Show the very last page preceded by a "..." at the end of the pagination
-    //         // section (before the Next button)
-    //         if (page < pages - 1) {
-    //             if (page < pages - 2) {
-    //                 str += '<li class="out-of-range"><a onclick="createPagination(pages,' + (page + 2) + ')">...</a></li>';
-    //             }
-    //             str += '<li class="page-item no"><a onclick="createPagination(pages, pages)">' + pages + '</a></li>';
-    //         }
-    //     }
-    //     // Show the Next button only if you are on a page other than the last
-    //     if (page < pages) {
-    //         str += '<li class="page-item next no"><a onclick="createPagination(pages, ' + (page + 1) + ')">></a></li>';
-    //     }
-    //     str += '</ul>';
-    //     // Return the pagination string to be outputted in the pug templates
-    //     document.getElementById('pagination').innerHTML = str;
-    //     return str;
-    // }
-
     //////////
     // Global variables
     //////////
@@ -151,11 +18,14 @@ $(document).ready(function() {
         updateHeaderActiveClass();
         initHeaderScroll();
 
+        setLogDefaultState();
+        setStepsClasses();
+
         initMasks();
+        initValidations();
         initSelectric();
         initDatepicker();
 
-        // development helper
         _window.on('resize', debounce(setBreakpoint, 200))
     }
 
@@ -166,10 +36,8 @@ $(document).ready(function() {
     //////////
 
     function legacySupport() {
-        // svg support for laggy browsers
         svg4everybody();
 
-        // Viewport units buggyfill
         window.viewportUnitsBuggyfill.init({
             force: false,
             refreshDebounceWait: 150,
@@ -177,35 +45,63 @@ $(document).ready(function() {
         });
     }
 
-    // Prevent # behavior
+    // CLICK HANDLERS
     _document
+        // prevent blank links
         .on('click', '[href="#"]', function(e) {
             e.preventDefault();
         })
-        .on('click', 'a[href^="#section"]', function() { // section scroll
-            var el = $(this).attr('href');
-            $('body, html').animate({
-                scrollTop: $(el).offset().top
-            }, 1000);
-            return false;
-        })
 
-        .on('click', '.open-button', function(e) {
+        // if item is collapsed - click works on whole row
+        // if item is opened, closing func works only on toggler icon
+        .on('click', '.log__item', function() {
+            var _this = $(this);
+            if ( !_this.is('.is-open') ){
+              openLog(_this)
+            }
+        })
+        .on('click', '.log__toggler', function(e) {
+            var parent = $(this).closest('.log__item');
+            parent.is('.is-open') ? closeLog(parent) : openLog(parent)
+
             e.preventDefault();
-            $(this).parent().parent().toggleClass('is-open');
+            e.stopPropagation();
         });
 
+
+    function openLog(el){
+      var dropdown = el.find('.log__dropdown');
+
+      el.addClass('is-open');
+      dropdown.slideDown()
+    }
+
+    function closeLog(el){
+      var dropdown = el.find('.log__dropdown');
+
+      el.removeClass('is-open');
+      dropdown.slideUp()
+    }
+
+    // set default state
+    function setLogDefaultState(){
+      $('.log__item').each(function(i,log){
+        if ( $(log).is('.is-open') ){
+          openLog($(log))
+        }
+      })
+
+    }
+
     // HEADER SCROLL
-    // add .header-static for .page or body
-    // to disable sticky header
     function initHeaderScroll() {
         _window.on('scroll', throttle(function(e) {
-            if ($(window).scrollTop() > 1) {
-                $('.header').addClass('custom');
+            if (_window.scrollTop() > 1) {
+                $('.header').addClass('is-fixed');
             } else {
-                $('.header').removeClass('custom');
+                $('.header').removeClass('is-fixed');
             }
-        }, 1));
+        }, 10));
     }
 
     // SET ACTIVE CLASS IN HEADER
@@ -222,8 +118,8 @@ $(document).ready(function() {
     }
 
     // Fillings steps
-    (function() {
-        var $steps = $('#steps');
+    function setStepsClasses(){
+        var $steps = $('.js-steps');
         var $stepsChilds = $steps.children();
         var productStep = parseInt($steps.data('active-step'));
 
@@ -233,10 +129,9 @@ $(document).ready(function() {
             for (var i = 0; i <= productStep - 1; i++) {
                 $($stepsChilds[i]).addClass('is-active')
             }
-        } else {
-            console.warn('Ooops! Smth. wrong')
         }
-    }());
+    }
+
 
     ////////////
     // UI
@@ -251,6 +146,7 @@ $(document).ready(function() {
     function initDatepicker() {
         var daysToAdd = 1;
         $("#txtFromDate").datepicker({
+            showAnim: 'show',
             onSelect: function(selected) {
                 var dtMax = new Date(selected);
                 dtMax.setDate(dtMax.getDate() + daysToAdd);
@@ -263,6 +159,7 @@ $(document).ready(function() {
         });
 
         $("#txtToDate").datepicker({
+            showAnim: 'show',
             onSelect: function(selected) {
                 var dtMax = new Date(selected);
                 dtMax.setDate(dtMax.getDate() - daysToAdd);
@@ -283,6 +180,89 @@ $(document).ready(function() {
         $("input[type='tel']").mask("+7 (000) 000-0000", {
             placeholder: "+7 (___) ___-____"
         });
+    }
+
+    function initValidations(){
+      ////////////////
+      // FORM VALIDATIONS
+      ////////////////
+
+      // jQuery validate plugin
+      // https://jqueryvalidation.org
+
+
+      // GENERIC FUNCTIONS
+      ////////////////////
+
+      var validateErrorPlacement = function(error, element) {
+        error.addClass('ui-input__validation');
+        error.appendTo(element.parent("div"));
+      }
+      var validateHighlight = function(element) {
+        $(element).parent('div').addClass("has-error");
+        $(element).parent().parent().addClass("has-error");
+      }
+      var validateUnhighlight = function(element) {
+        $(element).parent('div').removeClass("has-error");
+        $(element).parent().parent().removeClass("has-error");
+      }
+      var validateSubmitHandler = function(form) {
+        $(form).addClass('loading');
+        $.ajax({
+          type: "POST",
+          url: $(form).attr('action'),
+          data: $(form).serialize(),
+          success: function(response) {
+            $(form).removeClass('loading');
+            var data = $.parseJSON(response);
+            if (data.status == 'success') {
+              // do something I can't test
+            } else {
+                $(form).find('[data-error]').html(data.message).show();
+            }
+          }
+        });
+      }
+
+      var validatePhone = {
+        required: true,
+        normalizer: function(value) {
+            var PHONE_MASK = '+X (XXX) XXX-XXXX';
+            if (!value || value === PHONE_MASK) {
+                return value;
+            } else {
+                return value.replace(/[^\d]/g, '');
+            }
+        },
+        minlength: 11,
+        digits: true
+      }
+
+      ////////
+      // FORMS
+
+
+      /////////////////////
+      // REGISTRATION FORM
+      ////////////////////
+      $(".login__form").validate({
+        errorPlacement: validateErrorPlacement,
+        highlight: validateHighlight,
+        unhighlight: validateUnhighlight,
+        submitHandler: validateSubmitHandler,
+        rules: {
+          name: "required",
+          password: {
+            required: true,
+            minlength: 6,
+          }
+        },
+        messages: {
+          name: "Ошибка! Заполните это поле.",
+          password: "Ошибка! Заполните это поле.",
+        }
+      });
+
     }
 
     //////////
@@ -357,6 +337,11 @@ $(document).ready(function() {
 
     });
 
+    function triggerBody(){
+      _window.scroll();
+      _window.resize();
+    }
+
     //////////
     // DEVELOPMENT HELPER
     //////////
@@ -364,7 +349,6 @@ $(document).ready(function() {
         var wHost = window.location.host.toLowerCase()
         var displayCondition = wHost.indexOf("localhost") >= 0 || wHost.indexOf("surge") >= 0
         if (displayCondition) {
-            console.log(displayCondition)
             var wWidth = _window.width();
 
             var content = "<div class='dev-bp-debug'>" + wWidth + "</div>";
@@ -378,80 +362,5 @@ $(document).ready(function() {
             }, 1500)
         }
     }
-
-    // // PAGINATION
-
-    // let pages = 25;
-
-    // document.getElementById('pagination').innerHTML = createPagination(pages, 12);
-
-    // function createPagination(pages, page) {
-    //     let str = '<ul>';
-    //     let active;
-    //     let pageCutLow = page - 1;
-    //     let pageCutHigh = page + 1;
-    //     // Show the Previous button only if you are on a page other than the first
-    //     if (page > 1) {
-    //         str += '<li class="page-item previous no"><a onclick="createPagination(pages, ' + (page - 1) + ')"><</a></li>';
-    //     }
-    //     // Show all the pagination elements if there are less than 6 pages total
-    //     if (pages < 6) {
-    //         for (let p = 1; p <= pages; p++) {
-    //             active = page == p ? "active" : "no";
-    //             str += '<li class="' + active + '"><a onclick="createPagination(pages, ' + p + ')">' + p + '</a></li>';
-    //         }
-    //     }
-    //     // Use "..." to collapse pages outside of a certain range
-    //     else {
-    //         // Show the very first page followed by a "..." at the beginning of the
-    //         // pagination section (after the Previous button)
-    //         if (page > 2) {
-    //             str += '<li class="no page-item"><a onclick="createPagination(pages, 1)">1</a></li>';
-    //             if (page > 3) {
-    //                 str += '<li class="out-of-range"><a onclick="createPagination(pages,' + (page - 2) + ')">...</a></li>';
-    //             }
-    //         }
-    //         // Determine how many pages to show after the current page index
-    //         if (page === 1) {
-    //             pageCutHigh += 2;
-    //         } else if (page === 2) {
-    //             pageCutHigh += 1;
-    //         }
-    //         // Determine how many pages to show before the current page index
-    //         if (page === pages) {
-    //             pageCutLow -= 2;
-    //         } else if (page === pages - 1) {
-    //             pageCutLow -= 1;
-    //         }
-    //         // Output the indexes for pages that fall inside the range of pageCutLow
-    //         // and pageCutHigh
-    //         for (let p = pageCutLow; p <= pageCutHigh; p++) {
-    //             if (p === 0) {
-    //                 p += 1;
-    //             }
-    //             if (p > pages) {
-    //                 continue
-    //             }
-    //             active = page == p ? "active" : "no";
-    //             str += '<li class="page-item ' + active + '"><a onclick="createPagination(pages, ' + p + ')">' + p + '</a></li>';
-    //         }
-    //         // Show the very last page preceded by a "..." at the end of the pagination
-    //         // section (before the Next button)
-    //         if (page < pages - 1) {
-    //             if (page < pages - 2) {
-    //                 str += '<li class="out-of-range"><a onclick="createPagination(pages,' + (page + 2) + ')">...</a></li>';
-    //             }
-    //             str += '<li class="page-item no"><a onclick="createPagination(pages, pages)">' + pages + '</a></li>';
-    //         }
-    //     }
-    //     // Show the Next button only if you are on a page other than the last
-    //     if (page < pages) {
-    //         str += '<li class="page-item next no"><a onclick="createPagination(pages, ' + (page + 1) + ')">></a></li>';
-    //     }
-    //     str += '</ul>';
-    //     // Return the pagination string to be outputted in the pug templates
-    //     document.getElementById('pagination').innerHTML = str;
-    //     return str;
-    // }
 
 });

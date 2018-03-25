@@ -1,7 +1,6 @@
 *
   box-sizing: border-box
   outline: none
-  transition: all 0.25s ease-in-out
   margin: 0
 
 a
@@ -36,8 +35,6 @@ body, html
     flex: 1 0 auto
     display: flex
     flex-direction: column
-    // header offset ex
-    // padding-top: 100px
 
 .container
   max-width: 940px
@@ -46,9 +43,7 @@ body, html
   margin-right: auto
   padding-left: 40px
   padding-right: 40px
-
-+r($mobile)
-  .container
+  +r($mobile)
     padding-left: 20px
     padding-right: 20px
 
@@ -63,8 +58,3 @@ body, html
   padding: 5px
   font-size: 12px
   border-bottom-left-radius: 5px
-
-input[type=text],
-input[type=password],
-input[type=submit]
-  -webkit-appearance: none

@@ -2,8 +2,10 @@ ProjectTitle: So-logistic
 
 PageList:
 - file: login.html
-  ready: 80
+  ready: 90
 - file: current.html
-  ready: 80
+  ready: 90
 - file: log-page.html
-  ready: 80
+  ready: 90
+- file: log-page-many.html
+  ready: 90

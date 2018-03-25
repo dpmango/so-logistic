@@ -1,18 +1,9 @@
-.wrapper-main
-	padding-top: 70px
-	padding-bottom: 15px
-
-h1
-	font-size: 28px
-	color: #444
-	font-weight: 700
-	margin: 20px auto 25px
-
-.current-head
-	padding: 0 10px
+.log-head
+	padding: 70px 10px 0
 	.container
 		padding: 0
-.current-body
+
+.log
 	padding: 0 10px
 	.container.container--full
 		max-width: 1000px
@@ -20,134 +11,147 @@ h1
 	&__item
 		background: #fff
 		padding: 15px 30px
-		// display: flex
-		// justify-content: space-between
-		// align-items: center
 		border-radius: 5px
 		margin-bottom: 15px
+		cursor: pointer
+		transition: .25s $ease
 		&.is-open
-			.current-body__full-way
-				display: block
-			.current-body__full-info
-				display: block
-			.current-body__status
-				display: none
-			.current-body__vertical-line
-				display: none
-			.current-body__info
-				display: none
-			.current-body__open-item
-				transform: rotate(180deg)
-				color: #48a3ff
-				.ico
+			cursor: auto
+			&:hover
+				box-shadow: none
+			.log
+				&__status, &__info
+					opacity: 0
+					pointer-events: none
+				&__toggler
+					transform: rotate(180deg)
 					color: #48a3ff
-			.current-body__item-head
-				min-height: 52px
-				
-				
+
+		&:hover
+			box-shadow: 0 4px 8px rgba($fontColor, .1)
+			.log__toggler
+				color: #48a3ff
+
 	&__item-head
 		display: flex
 		justify-content: space-between
 		align-items: center
-		min-height: 45px
-		transition: all 0s ease-in-out
+		min-height: 52px
+		transition: all 0s $ease
+
+	&__dropdown
+		display: none
+
 	&__full-way
 		min-height: 180px
 		width: 100%
-		padding: 15px 0
-		border: 1px solid #f1f1f1
+		padding: 45px 0 0px
+		border: 1px solid $borderColor
 		border-left: none
 		border-right: none
 		margin: 15px auto 25px
-		display: none
+		display: flex
+		align-items: center
 	&__full-info
-		display: none
+		// display: none
 	&__number
+		display: inline-block
+		min-width: 131px
 		font-weight: 700
-		color: #444
+		color: $fontColor
 		font-size: 14px
 		text-transform: uppercase
-	&__vertical-line
-		height: 100%
-		min-height: 45px
-		width: 1px
-		background: #f1f1f1
-		margin: 0 2%
+
 	&__status
 		width: 47.5%
+		margin-left: 5.25%
+		margin-right: 5.25%
 		min-height: 32px
 		display: flex
 		align-items: center
 		position: relative
 		flex-wrap: wrap
-		
-	&__way
-		display: block
-		height: 7px
-		border-radius: 50px
-		width: 100%
-		background: #efefef
-		margin-top: 10px
-	&__success-way
-		display: block
-		height: 7px
-		border-radius: 50px
-		width: 65%
-		background: #32cb77
-		margin-top: -22px
-		position: relative
-		&:after
-			content: ''
+		transition: .25s $ease
+		&::before, &::after
+			display: inline-block
+			content: ' '
 			position: absolute
-			display: block
-			width: 31px
-			height: 31px
-			background: url(../img/package.svg)
-			background-size: contain
-			right: -14px
-			top: -13px
-				
-	// &__package
-	// 	width: 30px
-	// 	height: auto
-	// 	position: absolute
-	// 	left: calc(100%)
-		
+			top: 50%
+			height: 100%
+			min-height: 45px
+			width: 1px
+			transform: translateY(-50%)
+			background: $borderColor
+		&::before
+			left: -6.5%
+		&::after
+			right: -6.5%
 
+		&-path
+			display: block
+			height: 7px
+			border-radius: 50px
+			width: 100%
+			background: #efefef
+			margin-top: 10px
+		&-fill
+			display: block
+			height: 7px
+			border-radius: 50px
+			width: 65%
+			background: $colorGreen
+			margin-top: -22px
+			position: relative
+			&:after
+				content: ''
+				position: absolute
+				display: block
+				width: 31px
+				height: 31px
+				background: svg-load('../icons/package.svg')
+				background-size: contain
+				right: -14px
+				top: -13px
 	&__info
 		line-height: 1.5
 		margin-right: 2%
 		min-width: 190px
+		transition: .25s $ease
 	&__date
+		display: block
 		font-size: 11px
 		color: #9d9d9d
 		font-weight: 400
 	&__delivery-status
+		display: block
 		font-size: 12px
-		color: #444
+		color: $fontColor
 		font-weight: 700
 	&__comment
+		display: block
 		font-size: 12px
-		color: #444
+		color: $fontColor
 		font-weight: 400
-	&__open-item
+	&__toggler
 		cursor: pointer
+		color: #cccccc
+		transition: .25s $ease
 		.ico
-			color: #cccccc
 			font-size: 24px
 			transform: rotate(90deg)
+			transition: .25s $ease
 		&:hover
-			.ico
-				color: #48a3ff
+			color: #48a3ff
 		&:focus
-			.ico
-				color: #cccccc
+			color: #cccccc
+
+
 
 .full-info__title
 	font-size: 14px
-	color: #444
+	color: $fontColor
 	font-weight: 700
-	line-height: 1.2;
+	line-height: 1.2
 	margin-bottom: 5px
 .full-info__grid
 	display: flex
@@ -174,47 +178,49 @@ h1
 		align-items: center
 		p
 			font-size: 12px
-			color: #444444
+			color: $fontColor
 		a
 			font-weight: 400
 			font-size: 12px
-			color: #106bb5
-			border-bottom: 1px solid #106bb5
+			color: $colorBlue
+			border-bottom: 1px solid $colorBlue
 			line-height: 1.5
 			letter-spacing: 0.1px
+			transition: .25s $ease
 			&:hover
 				color: #2887e8
 				border-color: transparent
 
+
+
 +r($tablet)
-	.wrapper-main
+	.log-head
 		padding-top: 100px
-	.current-body
+	.log
 		&__item
 			position: relative
 			padding-bottom: 65px
-		&__vertical-line
-			display: none
+
 		&__status
 			width: calc(100% - 60px)
 			padding: 0
 			margin: 0
 			position: absolute
-			// outline: 1px solid red
 			min-height: 40px
 			bottom: 10px
 			border: none
-			border-top: 1px solid #f1f1f1
-		&__way
-			margin-top: 15px
-		&__success-way
-			margin-top: -23px
+			border-top: 1px solid $borderColor
+			&::before, &::after
+				display: none
+			&-path
+				margin-top: 15px
+			&-fill
+				margin-top: -23px
 		&__info
 			margin-left: auto
+
 +r($mobile)
-	h1
-		font-size: 24px
-	.current-body
+	.log
 		&__item
 			// flex-wrap: wrap
 			padding: 20px 15px
@@ -232,15 +238,15 @@ h1
 			margin-top: 15px
 			position: static
 			min-height: 40px
-			border-top: 1px solid #f1f1f1
-		&__way
-			margin-top: 20px
-		&__success-way
-			margin-top: -18px
+			border-top: 1px solid $borderColor
+			&-path
+				margin-top: 20px
+			&-fill
+				margin-top: -18px
 		&__info
 			margin-left: 0
 			width: 100%
-		&__open-item
+		&__toggler
 			position: absolute
 			top: 16px
 			right: 15px
@@ -253,6 +259,7 @@ h1
 			font-size: 14px
 		&__comment
 			font-size: 12px
+
 	.full-info__grid
 		display: flex
 		max-width: 400px

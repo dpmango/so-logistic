@@ -1,0 +1,25 @@
+// PAGINATION
+.pagination-container
+  .container
+    .pagination__grid
+      .left-side
+        p.left-side__title Показывать на странице:
+        select
+          option(value='1') 1
+          option(value='10') 10
+          option(value='100') 100
+      .right-side
+        .pagination
+          ul
+            li
+              a(href='#') <
+            li.active
+              a(href='#') 1
+            li
+              a(href='#') 2
+            li
+              a(href='#') ...
+            li
+              a(href='#') 40
+            li
+              a(href='#') >

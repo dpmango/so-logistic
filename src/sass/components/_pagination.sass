@@ -1,0 +1,100 @@
+.pagination
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  ul
+    list-style: none
+    padding: 0
+    margin: 0
+    display: flex
+    li
+      display: flex
+    a
+      background-color: #ececec
+      padding: 7px 5px
+      border-right: 0
+      font-size: 12px
+      color: $fontColor
+      border-radius: 7px
+      margin: 0 3px
+      min-width: 26px
+      text-align: center
+      cursor: pointer
+      transition: .25s $ease
+      &:hover
+        background: #3d9dff
+        color: #fff
+    li.active a
+      background-color: #3d9dff
+      color: #fff
+
+
+.pagination-container
+  padding: 0 10px
+  .container
+    padding: 0
+.pagination__grid
+  display: flex
+  justify-content: space-between
+  padding-top: 10px
+  align-items: center
+  .left-side
+    display: flex
+    align-items: center
+    p
+      font-size: 12px
+      margin-right: 10px
+    .selectricWrapper.selectricOpen
+      .selectric
+        border-top-left-radius: 0
+        border-top-right-radius: 0
+      .button
+        &:after
+          transform: rotate(225deg)
+          top: 4px
+    .selectric
+      min-width: 55px
+      background: #fff
+      border-radius: 5px
+      transition: all 0s $ease
+      font-size: 12px
+      color: $fontColor
+      .label
+        padding: 3px 6px
+        font-size: 12px
+        color: $fontColor
+        margin-right: 15px
+      .button
+        height: 22px
+        width: 20px
+        &:after
+          border: none
+          width: 6px
+          height: 6px
+          background-size: contain
+          border: 2px solid #5a9ee4
+          transform: rotate(45deg)
+          border-left: none
+          border-top: none
+          transition: all 0.25s $ease
+    .selectricItems
+      box-shadow: none
+      margin-top: 1px
+      border-top-left-radius: 5px
+      border-top-right-radius: 5px
+      li
+        padding: 8px 10px
+        background: #fff
+        border: none
+        transition: .25s $ease
+        &.li-selected
+        &:hover
+          background: #2887e8
+          color: #fff
+
++r($mobile)
+  .pagination__grid
+    .left-side
+      p.left-side__title
+        display: none
