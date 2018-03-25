@@ -1,148 +1,148 @@
 .header
-	position: fixed
-	z-index: 9999
-	top: 0
-	left: 0
-	width: 100%
-	background: #fff
-	display: flex
-	padding: 7px 10px
-	border-bottom: 1px solid transparent
-	&.is-fixed
-		border-bottom: 1px solid $borderColor
-	.container
-		padding: 0
-	&__logo
-		flex: 0 0 147px
-		img
-			width: 100%
-			height: auto
-	&__wrapper
-		display: flex
-		justify-content: space-between
-		align-items: center
-	&__links
-		display: flex
-		flex-wrap: wrap
-		// margin-left: auto
-		flex: 0 0 127px
-		justify-content: flex-end
-	&__phone
-		display: flex
-		width: 100%
-		font-weight: 700
-		font-size: 12px
-		color: $fontColor
-		border-bottom: 1px solid transparent
-		transition: .25s $ease
-		&:hover
-			color: #6d6c6c
-			border-color: #6d6c6c
-	&__mail
-		display: flex
-		font-weight: 400
-		font-size: 12px
-		color: $colorBlue
-		border-bottom: 1px solid $colorBlue
-		margin-top: 5px
-		letter-spacing: 0.1px
-		transition: .25s $ease
-		&:hover
-			color: $colorBlueHover
-			border-color: transparent
-	&__pages
-		margin: 0 auto
-		width: 100%
-		position: static
-		text-align: center
-		flex: 1
-	&__link-page
-		font-size: 11px
-		text-transform: uppercase
-		color: $colorBlue
-		border-bottom: 1px solid $colorBlue
-		margin: 0 3%
-		cursor: pointer
-		transition: .25s $ease
-		&:hover
-			color: $colorBlue
-			border-color: transparent
-		&.is-active
-			border-bottom: 1px solid transparent
-			color: $fontColor
-			&:hover
-				color: $colorBlue
+  position: fixed
+  z-index: 9999
+  top: 0
+  left: 0
+  width: 100%
+  background: #fff
+  display: flex
+  padding: 7px 10px
+  border-bottom: 1px solid transparent
+  &.is-fixed
+    border-bottom: 1px solid $borderColor
+  .container
+    padding: 0
+  &__logo
+    flex: 0 0 147px
+    img
+      width: 100%
+      height: auto
+  &__wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+  &__links
+    display: flex
+    flex-wrap: wrap
+    // margin-left: auto
+    flex: 0 0 127px
+    justify-content: flex-end
+  &__phone
+    display: flex
+    width: 100%
+    font-weight: 700
+    font-size: 12px
+    color: $fontColor
+    border-bottom: 1px solid transparent
+    transition: .25s $ease
+    &:hover
+      color: #6d6c6c
+      border-color: #6d6c6c
+  &__mail
+    display: flex
+    font-weight: 400
+    font-size: 12px
+    color: $colorBlue
+    border-bottom: 1px solid $colorBlue
+    margin-top: 5px
+    letter-spacing: 0.1px
+    transition: .25s $ease
+    &:hover
+      color: $colorBlueHover
+      border-color: transparent
+  &__pages
+    margin: 0 auto
+    width: 100%
+    position: static
+    text-align: center
+    flex: 1
+  &__link-page
+    font-size: 11px
+    text-transform: uppercase
+    color: $colorBlue
+    border-bottom: 1px solid $colorBlue
+    margin: 0 3%
+    cursor: pointer
+    transition: .25s $ease
+    &:hover
+      color: $colorBlue
+      border-color: transparent
+    &.is-active
+      border-bottom: 1px solid transparent
+      color: $fontColor
+      &:hover
+        color: $colorBlue
 
-	&__user
-		display: flex
-		// flex: 0 1 auto
-		align-items: center
-		padding: 0 20px
-		border: 1px solid $borderColor
-		border-top: none
-		border-bottom: none
-		margin-left: auto
-		margin-right: 20px
-		p
-			display: block
-			width: inherit
-			font-size: 12px
-			font-weight: 700
-		a
-			font-weight: 400
-			font-size: 12px
-			color: $colorBlue
-			border-bottom: 1px solid $colorBlue
-			margin-top: 5px
-			letter-spacing: 0.1px
-			transition: .25s $ease
-			&:hover
-				color: $colorBlueHover
-				border-color: transparent
-	&__user-icon
-		min-width: 21px
-		margin-right: 15px
-		.ico
-			color: #cccccc
-			font-size: 21px
+  &__user
+    display: flex
+    // flex: 0 1 auto
+    align-items: center
+    padding: 0 20px
+    border: 1px solid $borderColor
+    border-top: none
+    border-bottom: none
+    margin-left: auto
+    margin-right: 20px
+    p
+      display: block
+      width: inherit
+      font-size: 12px
+      font-weight: 700
+    a
+      font-weight: 400
+      font-size: 12px
+      color: $colorBlue
+      border-bottom: 1px solid $colorBlue
+      margin-top: 5px
+      letter-spacing: 0.1px
+      transition: .25s $ease
+      &:hover
+        color: $colorBlueHover
+        border-color: transparent
+  &__user-icon
+    min-width: 21px
+    margin-right: 15px
+    .ico
+      color: #cccccc
+      font-size: 21px
 
-	&--login
-		.header
-			&__links
-				margin-left: auto
+  &--login
+    .header
+      &__links
+        margin-left: auto
 
 +r($tablet)
-	.header
-		&__pages
-			position: absolute
-			top: 61px
-			left: 0
-			padding: 10px
-			background: #fff
-			width: 100%
-			border-top: 1px solid $borderColor
-			justify-content: center
-			text-align: center
+  .header
+    &__pages
+      position: absolute
+      top: 61px
+      left: 0
+      padding: 10px
+      background: #fff
+      width: 100%
+      border-top: 1px solid $borderColor
+      justify-content: center
+      text-align: center
 
-		&__user
-			border-left: none
-		&__links
-			margin-left: 2.5%
+    &__user
+      border-left: none
+    &__links
+      margin-left: 2.5%
 
 +r($mobile)
-	.header
-		&__logo
-			max-width: 135px
-		&__links
-			display: none
-		&__user
-			padding: 0
-			margin: 0
-			border: none
-		&__pages
-			top: 57px
-			border-bottom: 1px solid transparent
-		&.custom
-			border: none
-			.header__pages
-				border-bottom: 1px solid $borderColor
+  .header
+    &__logo
+      max-width: 135px
+    &__links
+      display: none
+    &__user
+      padding: 0
+      margin: 0
+      border: none
+    &__pages
+      top: 57px
+      border-bottom: 1px solid transparent
+    &.custom
+      border: none
+      .header__pages
+        border-bottom: 1px solid $borderColor
