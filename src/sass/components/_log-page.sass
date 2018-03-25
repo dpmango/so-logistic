@@ -1,6 +1,6 @@
-.wrapper-main
-	padding-top: 70px
-	padding-bottom: 15px
+// .wrapper-main
+// 	padding-top: 70px
+// 	padding-bottom: 15px
 
 h1
 	font-size: 28px
@@ -9,7 +9,7 @@ h1
 	margin: 20px auto 25px
 
 .log-head
-	padding: 0 10px
+	padding: 70px 10px 0
 	.container
 		padding: 0
 .log-body
@@ -102,14 +102,6 @@ h1
 			background-size: contain
 			right: -14px
 			top: -13px
-				
-	// &__package
-	// 	width: 30px
-	// 	height: auto
-	// 	position: absolute
-	// 	left: calc(100%)
-		
-
 	&__info
 		line-height: 1.5
 		margin-right: 2%
@@ -157,6 +149,9 @@ h1
 		min-width: 105px
 		width: 100%
 		padding: 10px
+		&:focus
+			border-color: #d8d7d7
+			box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.1), inset -1px -1px 2px 0px rgba(0, 0, 0, 0.1)
 		&::-webkit-input-placeholder 
 			color:#cdcdcd
 		&::-moz-placeholder
@@ -184,6 +179,9 @@ h1
 			box-shadow: none
 			min-width: 0
 			width: 110px
+			&:focus
+				border-color: #d8d7d7
+				box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.1), inset -1px -1px 2px 0px rgba(0, 0, 0, 0.1)
 		.input-container
 			position: relative
 			transition: all 0s ease-in-out
@@ -207,6 +205,10 @@ h1
 			.selectric
 				border-bottom-left-radius: 0
 				border-bottom-right-radius: 0
+				.button
+					&:after
+						transform: rotate(225deg)
+						top: 4px
 		.selectric
 			min-width: 130px
 			background: #fff
@@ -236,6 +238,7 @@ h1
 					transform: rotate(45deg)
 					border-left: none
 					border-top: none
+					transition: all 0.25s ease-in-out
 		.selectricItems
 			box-shadow: none
 			margin-top: -1px
@@ -279,6 +282,10 @@ h1
 			color: #838383
 			align-self: center
 			margin-left: 10px
+			border-bottom: 1px solid transparent
+			&:hover
+				color: #5a5959
+				border-color: #5a5959
 
 
 .pagination-container
@@ -300,6 +307,10 @@ h1
 			.selectric
 				border-top-left-radius: 0
 				border-top-right-radius: 0
+			.button
+				&:after
+					transform: rotate(225deg)
+					top: 4px
 		.selectric
 			min-width: 55px
 			background: #fff
@@ -324,6 +335,7 @@ h1
 					transform: rotate(45deg)
 					border-left: none
 					border-top: none
+					transition: all 0.25s ease-in-out
 		.selectricItems
 			box-shadow: none
 			margin-top: 1px
@@ -363,13 +375,17 @@ h1
 			min-width: 26px
 			text-align: center
 			cursor: pointer
+			&:hover
+				background: #fff
 		li.active a
 			background-color: #3d9dff
 			color: #fff
 
 
 +r($tablet)
-	.wrapper-main
+	// .wrapper-main
+	// 	padding-top: 100px
+	.log-head
 		padding-top: 100px
 	.log-body
 		&__item

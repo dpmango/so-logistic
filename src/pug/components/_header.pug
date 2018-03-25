@@ -3,13 +3,11 @@ header.header
   .container
     .header__wrapper
       a(href="#").header__logo
-        //- +icon('ico-email')
         img(src="img/logotype.svg", alt="")
       .header__pages
-          a.header__link-page.is-active(href='#') Текущие поставки
-          a.header__link-page(href='#') журнал поставок
+          a.header__link-page.is-active(href='current.html') Текущие поставки
+          a.header__link-page(href='log-page.html') журнал поставок
       .header__user
-          //- img(src='img/icn-user.png', alt='')
           .header__user-icon
             +icon('ico-user')
           .header__user-info

@@ -16,9 +16,11 @@ $(document).ready(function(){
   }
   var validateHighlight = function(element) {
     $(element).parent('div').addClass("has-error");
+    $(element).parent().parent().addClass("has-error");
   }
   var validateUnhighlight = function(element) {
     $(element).parent('div').removeClass("has-error");
+    $(element).parent().parent().removeClass("has-error");
   }
   var validateSubmitHandler = function(form) {
     $(form).addClass('loading');
@@ -72,8 +74,8 @@ $(document).ready(function(){
       }
     },
     messages: {
-      name: "Ошибка: введены недопустимые символы",
-      password: "Ошибка: введены недопустимые символы",
+      name: "Ошибка! Заполните это поле.",
+      password: "Ошибка! Заполните это поле.",
     }
   });
 

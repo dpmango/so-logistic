@@ -1,9 +1,9 @@
-ProjectTitle: Project-name
+ProjectTitle: So-logistic
 
 PageList:
 - file: login.html
-  ready: 20
+  ready: 80
 - file: current.html
-  ready: 20
+  ready: 80
 - file: log-page.html
-  ready: 20
+  ready: 80
