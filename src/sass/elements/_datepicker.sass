@@ -23,6 +23,7 @@
     transform: rotate(135deg)
     border-left: none
     border-top: none
+    cursor: pointer
   .ui-datepicker-next
     position: absolute
     right: 15px
@@ -34,6 +35,7 @@
     transform: rotate(-45deg)
     border-left: none
     border-top: none
+    cursor: pointer
   .ui-datepicker-title
     font-size: 12px
 .ui-datepicker-calendar
@@ -49,11 +51,19 @@
       text-align: center
       padding: 4px
       display: block
+      border-radius: 3px
+      &:hover
+        background: rgba(61,157,255,0.15)
   td.ui-state-disabled
     a,
     span
-      background: rgba(0,0,0,0.05)
+      background: rgba(0,0,0,0.08)
       border-radius: 3px
+  td
+    a.ui-state-active,
+    span.ui-state-active
+      background: #3d9dff
+      color: #fff 
 
 
 +r($tablet)
