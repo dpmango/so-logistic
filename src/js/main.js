@@ -131,6 +131,11 @@ $(document).ready(function() {
           $($stepsChilds[i]).addClass('is-active')
         }
       }
+
+      var stepsCount = $stepsChilds.length
+      if ( stepsCount > 8 ){
+        $steps.addClass('is-many')
+      }
     })
   }
 
