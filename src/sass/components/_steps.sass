@@ -276,7 +276,7 @@
       &-date
         margin-top: -3px
       &-title
-        margin-top: 4px
+        margin-top: -4px
     &__progress
       width: 6px
       height: 100%
@@ -296,12 +296,15 @@
           height: 50%
       .step__info-title
         min-height: 0
+        margin-top: 4px
       .step__info-comment
         margin-top: 4px
       &:last-child
         .step__info-title
           margin-top: 3px
     &.is-active
+      .step__info-title
+        margin-top: 4px
       &:last-child
         .step__info-title
           margin-top: 3px
