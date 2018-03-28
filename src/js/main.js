@@ -20,6 +20,7 @@ $(document).ready(function() {
 
     setLogDefaultState();
     setStepsClasses();
+    _window.on('resize', debounce(setStepsClasses, 200))
 
     initMasks();
     initValidations();
@@ -73,6 +74,8 @@ $(document).ready(function() {
 
     el.addClass('is-open');
     dropdown.slideDown()
+
+    setStepsClasses()
   }
 
   function closeLog(el) {
@@ -119,8 +122,8 @@ $(document).ready(function() {
   // Fillings steps
   function setStepsClasses() {
     var $allSteps = $('.js-steps');
-    $allSteps.each(function(i, step) {
-      var $steps = $(step);
+    $allSteps.each(function(i, steps) {
+      var $steps = $(steps);
       var $stepsChilds = $steps.children();
       var productStep = parseInt($steps.data('active-step'));
 
@@ -136,6 +139,21 @@ $(document).ready(function() {
       if ( stepsCount > 8 ){
         $steps.addClass('is-many')
       }
+
+      // find last and first in row
+      var stepsLenght = $steps.width();
+      var collapsePoint = 0;
+
+      $stepsChilds.removeClass('is-last-in-row').removeClass('is-first-in-row')
+
+      $stepsChilds.each(function(i, el){
+        collapsePoint = collapsePoint + $(el).width()
+        if ( collapsePoint > stepsLenght ){
+          $(el).prev().addClass('is-last-in-row')
+          $(el).addClass('is-first-in-row')
+          return false
+        }
+      })
     })
   }
 

@@ -7,7 +7,7 @@
   &.is-many
     .step
       flex-basis: 15%
-      &:nth-child(6n)
+      &.is-last-in-row
         .step__progress
           &:after
             display: block
@@ -19,7 +19,7 @@
             top: 0
             background: #fff
             border-top: 6px dotted #efefef
-      &:nth-child(7n)
+      &.is-first-in-row
         .step__progress
           &:before
             display: none
@@ -35,28 +35,21 @@
             border-top: 6px dotted #efefef
             padding-left: 2px
       &.is-active
-        &:nth-child(6n)
-          .step__progress
-            &:after
-              border-color: #32cb77
-        &:nth-child(7n)
-          .step__progress
-            &:after
-              border-color: #32cb77
+        &.is-last-in-row, &.is-first-in-row
+          .step__progress:after
+            border-color: #32cb77
       &.in-progress
-        &:nth-child(6n)
-          .step__progress
-            &:after
-              border-color: #3d9dff
-        &:nth-child(7n)
-          .step__progress
-            &:after
-              border-color: #3d9dff
+        &.is-last-in-row, &.is-first-in-row
+          .step__progress:after
+            border-color: #3d9dff
 
       &:last-child
+        flex-basis: auto
+        flex-grow: 0
         .step__progress
           &:after
             display: none
+
 .step
   flex: 1 0 10%
   position: relative
@@ -310,11 +303,11 @@
     &.is-many
       .step
         flex-basis: 100%
-        &:nth-child(6n)
+        &.is-last-in-row
           .step__progress
             &:after
               display: none
-        &:nth-child(7n)
+        &.is-first-in-row
           .step__progress
             &:after
               display: none
