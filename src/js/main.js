@@ -53,6 +53,11 @@ $(document).ready(function() {
       e.preventDefault();
     })
 
+    .on('click', '.clear-all', function(e) {
+      var $form = $(this).parents('form');
+      $.each($form.find('input'), function() {$(this).val('')})
+    })
+
     // if item is collapsed - click works on whole row
     // if item is opened, closing func works only on toggler icon
     .on('click', '.log__item', function() {
@@ -198,11 +203,11 @@ $(document).ready(function() {
 
   // Masked input
   function initMasks() {
-    $("[js-dateMask]").mask("99.99.99", {
-      placeholder: "ДД.ММ.ГГ"
+    $(".filter__number input").mask("99-999999-99", {
+      placeholder: "01-585424-01"
     });
-    $("input[type='tel']").mask("+7 (000) 000-0000", {
-      placeholder: "+7 (___) ___-____"
+    $(".filter__date-inputs input").mask("99/99/9999", {
+      placeholder: "03/28/2018"
     });
   }
 
