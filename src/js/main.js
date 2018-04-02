@@ -143,6 +143,7 @@ $(document).ready(function() {
             var productStep = parseInt($steps.data('active-step'));
 
             if (typeof productStep == 'number' && $stepsChilds.length > 1) {
+                $($stepsChilds[productStep - 1]).addClass('in-progress-prev')
                 $($stepsChilds[productStep]).addClass('in-progress')
 
                 for (var i = 0; i <= productStep - 1; i++) {

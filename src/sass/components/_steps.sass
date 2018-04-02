@@ -49,6 +49,18 @@
         .step__progress
           &:after
             display: none
+  &.is-progress-blue
+    .step
+      &.in-progress-prev
+        &.is-last-in-row, &.is-first-in-row
+          .step__progress:after
+            border-color: #3d9dff
+  &.is-progress-green
+    .step
+      &.in-progress
+        &.is-first-in-row
+          .step__progress:after
+            border-color: #32cb77
 
 .step
   flex: 1 0 10%

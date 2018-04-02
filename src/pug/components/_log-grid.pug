@@ -50,7 +50,7 @@
       .log__status-fill(style='width:10%')
     .log__info
       span.log__date 02.11.2017
-      span.log__delivery-status Доставка до материка
+      span.log__delivery-status Прогресс 50/50
       span.log__comment Отправлено поставщиком
     .log__toggler
       +icon('ico-arrow')
@@ -58,6 +58,88 @@
   .log__dropdown
     .log__full-way
       include _steps-12-progress
+    .log__full-info
+      h2.full-info__title Информация о заказе
+      .full-info__grid
+        .full-info__row
+          .full-info__left
+            p Текущее состояние:
+          .full-info__right
+            p 
+              strong Доставка по РФ
+        .full-info__row
+          .full-info__left
+            p Наименование партии:
+          .full-info__right
+            p 05150439435
+        .full-info__row
+          .full-info__left
+            p Документы:
+          .full-info__right
+            a(href='#') Накладная №01-5395-548
+        .full-info__row
+          .full-info__left
+            p Комментарий:
+          .full-info__right
+            p Требуется оплата доставки
+// item
+.log__item
+  .log__item-head
+    span.log__number №01-585494-95
+    .log__status 
+      .log__status-path
+      .log__status-fill(style='width:10%')
+    .log__info
+      span.log__date 02.11.2017
+      span.log__delivery-status Прогресс blue
+      span.log__comment Отправлено поставщиком
+    .log__toggler
+      +icon('ico-arrow')
+  // dropdown
+  .log__dropdown
+    .log__full-way
+      include _steps-12-progress2
+    .log__full-info
+      h2.full-info__title Информация о заказе
+      .full-info__grid
+        .full-info__row
+          .full-info__left
+            p Текущее состояние:
+          .full-info__right
+            p 
+              strong Доставка по РФ
+        .full-info__row
+          .full-info__left
+            p Наименование партии:
+          .full-info__right
+            p 05150439435
+        .full-info__row
+          .full-info__left
+            p Документы:
+          .full-info__right
+            a(href='#') Накладная №01-5395-548
+        .full-info__row
+          .full-info__left
+            p Комментарий:
+          .full-info__right
+            p Требуется оплата доставки
+// item
+.log__item
+  .log__item-head
+    span.log__number №01-585494-95
+    .log__status 
+      .log__status-path
+      .log__status-fill(style='width:10%')
+    .log__info
+      span.log__date 02.11.2017
+      span.log__delivery-status Прогресс green
+      span.log__comment Отправлено поставщиком
+    .log__toggler
+      +icon('ico-arrow')
+  // dropdown
+  .log__dropdown
+    .log__full-way
+      include _steps-12-progress3
     .log__full-info
       h2.full-info__title Информация о заказе
       .full-info__grid
