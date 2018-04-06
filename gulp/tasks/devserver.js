@@ -28,7 +28,7 @@ gulp.task('server', function() {
     open: Boolean(util.env.open || true),
     notify: false,
     ghostMode: false,
-    online: Boolean(util.env.tunnel),
+    // online: Boolean(util.env.tunnel),
     tunnel: util.env.tunnel || null
   });
 });
