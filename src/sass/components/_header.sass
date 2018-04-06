@@ -40,7 +40,7 @@
     font-weight: 400
     font-size: 12px
     color: $colorBlue
-    border-bottom: 1px solid $colorBlue
+    border-bottom: 1px solid $colorBlueBorder
     margin-top: 5px
     letter-spacing: 0.1px
     transition: .25s $ease
@@ -57,10 +57,13 @@
     font-size: 11px
     text-transform: uppercase
     color: $colorBlue
-    border-bottom: 1px solid $colorBlue
+    border-bottom: 1px solid $colorBlueBorder
     margin: 0 3%
     cursor: pointer
     transition: .25s $ease
+    letter-spacing: 1px
+    &:first-child
+      margin-left: 2px
     &:hover
       color: $colorBlue
       border-color: transparent
@@ -89,7 +92,7 @@
       font-weight: 400
       font-size: 12px
       color: $colorBlue
-      border-bottom: 1px solid $colorBlue
+      border-bottom: 1px solid $colorBlueBorder
       margin-top: 5px
       letter-spacing: 0.1px
       transition: .25s $ease
